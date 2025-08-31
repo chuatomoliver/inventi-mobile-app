@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.InventiApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.InventiApp" parent="Base.Theme.InventiApp" />
+
+    <style name="SignUpTextStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/proximanova_semi</item>
+    </style>
+
+    <style name="ProximaNovaTextStyle">
+        <item name="fontFamily">@font/proximanova_semibold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ProximaNovaTextStyle1">
+        <item name="fontFamily">@font/proximanova_semibold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="ProximaNovaTextStyle1Bold">
+        <item name="fontFamily">@font/proximanova_bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="ProximaNovaTextStyleNormal">
+        <item name="fontFamily">@font/proximanova_regular</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+</resources>

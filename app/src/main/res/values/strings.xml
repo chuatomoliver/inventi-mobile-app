@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InventiApp</string>
+    <string name="skip">skip</string>
+    <string name="_107_reviews">(107 Reviews)</string>
+    <string name="g8502_preston_rd_inglewood">G8502 Preston Rd. Inglewood</string>
+    <string name="month">/month</string>
+    <string name="_1500">$1500</string>
+    <string name="pinebrook_plaza">Pinebrook Plaza</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="_5_0">5.0</string>
+    <string name="_3_5_km_50_min">3.5 km/50 min</string>
+</resources>
