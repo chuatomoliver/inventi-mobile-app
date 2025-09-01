@@ -1,1 +1,9 @@
 /build
+
+# Android Studio
+.idea/
+*.iml
+
+
+#Tutor Rules
+tutor-mode.md

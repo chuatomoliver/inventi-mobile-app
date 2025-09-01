@@ -10,6 +10,8 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.ActivityHomeBinding
 import com.certicode.inventiapp.databinding.ActivityMainBinding
@@ -19,10 +21,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         spannableText()
+
+        splashScreen.setKeepOnScreenCondition { false }
+
 
         binding.signInButton.setOnClickListener {
             // This code block is executed when the button is clicked.

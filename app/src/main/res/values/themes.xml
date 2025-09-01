@@ -1,12 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.InventiApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <!-- Splash screen theme -->
+    <style name="Theme.InventiApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.InventiApp</item>
     </style>
 
+    <!-- Base application theme -->
+    <style name="Base.Theme.InventiApp" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!-- App theme after splash -->
     <style name="Theme.InventiApp" parent="Base.Theme.InventiApp" />
 
+    <!-- Custom text styles -->
     <style name="SignUpTextStyle">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/white</item>
@@ -33,4 +40,5 @@
         <item name="fontFamily">@font/proximanova_regular</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
 </resources>
