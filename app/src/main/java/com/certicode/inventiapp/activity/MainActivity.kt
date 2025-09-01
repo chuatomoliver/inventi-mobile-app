@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
             // Example: Navigate to a new Activity
             // Replace 'HomeActivity::class.java' with the name of your target Activity.
-            val intent = Intent(this, Home2Activity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
