@@ -27,7 +27,7 @@ private val fragments = arrayOf(
     HomeFragment(),
     MapsFragment(),
     CatFragment(),
-    BirdFragment()
+    ProfileFragment()
 )
 
 class HomeActivity : AppCompatActivity() {
