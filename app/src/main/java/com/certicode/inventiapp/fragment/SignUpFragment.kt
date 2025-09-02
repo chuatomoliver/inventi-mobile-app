@@ -37,6 +37,11 @@ class SignUpFragment: Fragment() {
             val intent = Intent(requireActivity(), MainActivity::class.java)
             startActivity(intent)
         }
+
+        binding.signUpButton.setOnClickListener {
+            val intent = Intent(requireActivity(), MainActivity::class.java)
+            startActivity(intent)
+        }
   }
 
     override fun onDestroyView() {
