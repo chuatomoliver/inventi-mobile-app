@@ -15,18 +15,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InventiApp">
+        <activity
+            android:name=".activity.FavoriteApartmentContainerAcitivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDJ9UnPfDImeu1lO4BP4bwindmb4AiwjgQ" />
 
+        <activity android:name=".activity.Home2Activity"></activity>
+        <activity android:name=".activity.MainActivity2" />
         <activity
-            android:name=".activity.Home2Activity"
-            >
-        </activity>
-        <activity android:name=".activity.MainActivity2"/>
-        <activity android:name=".activity.MainActivity"
-            android:exported="true" >
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
