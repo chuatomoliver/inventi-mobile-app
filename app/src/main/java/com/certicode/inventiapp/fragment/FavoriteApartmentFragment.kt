@@ -5,56 +5,101 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.adapter.FavoriteAdapter
+import com.certicode.inventiapp.models.FavoriteModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoriteApartmentFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoriteApartmentFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var favoriteAdapter: FavoriteAdapter
+    private lateinit var favoriteList: MutableList<FavoriteModel>
+
+    private lateinit var allProperty: Button
+    private lateinit var sortHouses: Button
+    private lateinit var sortVilla: Button
+    private lateinit var sortApartments: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite_apartment, container, false)
+        val view = inflater.inflate(R.layout.fragment_favorite_apartment, container, false)
+
+        // Buttons
+        allProperty = view.findViewById(R.id.allProperty)
+        sortHouses = view.findViewById(R.id.sortHouses)
+        sortVilla = view.findViewById(R.id.sortVilla)
+        sortApartments = view.findViewById(R.id.sortApartments)
+
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+
+        favoriteList = mutableListOf(
+            FavoriteModel(R.drawable.apartment, "Apartment", 4.5, "Cozy Apartment", "Manila", 25000, "per month", "Apartment"),
+            FavoriteModel(R.drawable.apartment, "Villa", 4.8, "Luxury Villa", "Tagaytay", 100000, "per month", "Villa"),
+            FavoriteModel(R.drawable.apartment, "House", 4.2, "Family House", "Quezon City", 50000, "per month", "House")
+        )
+
+        favoriteAdapter = FavoriteAdapter(favoriteList)
+        recyclerView.adapter = favoriteAdapter
+
+        allProperty.setOnClickListener { filterList("All") }
+        sortHouses.setOnClickListener { filterList("House") }
+        sortVilla.setOnClickListener { filterList("Villa") }
+        sortApartments.setOnClickListener { filterList("Apartment") }
+
+        return  view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FavoriteApartmentFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FavoriteApartmentFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun filterList(type: String) {
+        // Reset button colors
+        resetButtonColors()
+
+        // Highlight selected button
+        when(type) {
+            "All" -> {
+                allProperty.setBackgroundColor(resources.getColor(R.color.blue1))
+                allProperty.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             }
+            "House" -> {
+                sortHouses.setBackgroundColor(resources.getColor(R.color.blue1))
+                sortHouses.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            }
+            "Villa" -> {
+                sortVilla.setBackgroundColor(resources.getColor(R.color.blue1))
+                sortVilla.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            }
+            "Apartment" -> {
+                sortApartments.setBackgroundColor(resources.getColor(R.color.blue1))
+                sortApartments.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            }
+        }
+
+        // Filter the list
+        val filteredList = if(type.equals("All", ignoreCase = true)) {
+            favoriteList
+        } else {
+            favoriteList.filter { it.type.equals(type, ignoreCase = true) }
+        }
+
+
+
+        favoriteAdapter.updateList(filteredList)
+    }
+
+    private fun resetButtonColors() {
+        val defaultColor = resources.getColor(R.color.gray) // same as your #E7E7E7
+        allProperty.setBackgroundColor(defaultColor)
+        sortHouses.setBackgroundColor(defaultColor)
+        sortVilla.setBackgroundColor(defaultColor)
+        sortApartments.setBackgroundColor(defaultColor)
     }
 }
