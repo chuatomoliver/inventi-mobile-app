@@ -68,4 +68,8 @@ dependencies {
     //Google Maps
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
+    //Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
+    
 }
