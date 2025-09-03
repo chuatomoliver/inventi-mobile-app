@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
-import com.certicode.inventiapp.activity.EmptyContainerActivity
 import com.certicode.inventiapp.databinding.FavoriteApartmentItemBinding
 import com.certicode.inventiapp.fragment.FavoriteApartmentFragment
 import com.certicode.inventiapp.models.ApartmentModel
