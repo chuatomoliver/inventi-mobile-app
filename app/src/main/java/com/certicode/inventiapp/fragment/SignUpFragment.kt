@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+<<<<<<< HEAD
+=======
 import com.certicode.inventiapp.R
+>>>>>>> main
 import com.certicode.inventiapp.activity.HomeActivity
 import com.certicode.inventiapp.activity.MainActivity
 import com.certicode.inventiapp.databinding.ActivityMainBinding
@@ -29,7 +32,11 @@ class SignUpFragment: Fragment() {
     }
 
 
+<<<<<<< HEAD
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+=======
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+>>>>>>> main
         super.onViewCreated(view, savedInstanceState)
 
         // Sign Up button click listener
@@ -40,6 +47,12 @@ class SignUpFragment: Fragment() {
         }
 
         binding.signUpButton.setOnClickListener {
+<<<<<<< HEAD
+            val intent = Intent(requireActivity(), MainActivity::class.java)
+            startActivity(intent)
+        }
+  }
+=======
             val fragment = OtpFragment() // Replace with your fragment class
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment) // Your container ID in activity layout
@@ -48,6 +61,7 @@ class SignUpFragment: Fragment() {
         }
 
     }
+>>>>>>> main
 
     override fun onDestroyView() {
         super.onDestroyView()
