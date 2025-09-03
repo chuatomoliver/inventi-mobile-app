@@ -25,6 +25,8 @@ class FavoriteApartmentFragment : Fragment() {
     private lateinit var sortVilla: Button
     private lateinit var sortApartments: Button
 
+    private var selectedType: String = "All" // default selection
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,9 +45,9 @@ class FavoriteApartmentFragment : Fragment() {
 
 
         favoriteList = mutableListOf(
-            FavoriteModel(R.drawable.apartment, "Apartment", 4.5, "Cozy Apartment", "Manila", 25000, "per month", "Apartment"),
-            FavoriteModel(R.drawable.apartment, "Villa", 4.8, "Luxury Villa", "Tagaytay", 100000, "per month", "Villa"),
-            FavoriteModel(R.drawable.apartment, "House", 4.2, "Family House", "Quezon City", 50000, "per month", "House")
+            FavoriteModel(R.drawable.apartment, "Apartment", 4.5, "Cozy Apartment", "Manila", 25000, "month", "Apartment"),
+            FavoriteModel(R.drawable.apartment, "Villa", 4.8, "Luxury Villa", "Tagaytay", 100000, "month", "Villa"),
+            FavoriteModel(R.drawable.apartment, "House", 4.2, "Family House", "Quezon City", 50000, "month", "House")
         )
 
         favoriteAdapter = FavoriteAdapter(favoriteList)
@@ -56,15 +58,19 @@ class FavoriteApartmentFragment : Fragment() {
         sortVilla.setOnClickListener { filterList("Villa") }
         sortApartments.setOnClickListener { filterList("Apartment") }
 
+        filterList("All")
         return  view
     }
 
     private fun filterList(type: String) {
+
+        selectedType = type
+
         // Reset button colors
         resetButtonColors()
 
         // Highlight selected button
-        when(type) {
+        when(selectedType) {
             "All" -> {
                 allProperty.setBackgroundColor(resources.getColor(R.color.blue1))
                 allProperty.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -84,7 +90,7 @@ class FavoriteApartmentFragment : Fragment() {
         }
 
         // Filter the list
-        val filteredList = if(type.equals("All", ignoreCase = true)) {
+        val filteredList = if(selectedType.equals("All", ignoreCase = true)) {
             favoriteList
         } else {
             favoriteList.filter { it.type.equals(type, ignoreCase = true) }
