@@ -11,4 +11,13 @@
     <string name="_3_5_km_50_min">3.5 km/50 min</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_image">test image</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_1">+1 ⌄</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="gender">Gender</string>
+    <string name="complete_profile">Complete Profile</string>
+    <string name="don_t_worry_only_you_can_see_your_personal_ndata_no_one_else_will_be_able_to_see_it">Don\'t worry, only you can see your personal \ndata. No one else will be able to see it.</string>
+    <string name="complete_your_profile">Complete Your Profile</string>
 </resources>
