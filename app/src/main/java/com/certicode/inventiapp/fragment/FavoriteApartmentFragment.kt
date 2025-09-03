@@ -58,6 +58,9 @@ class FavoriteApartmentFragment : Fragment() {
         sortVilla.setOnClickListener { filterList("Villa") }
         sortApartments.setOnClickListener { filterList("Apartment") }
 
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+
         filterList("All")
         return  view
     }
@@ -107,5 +110,11 @@ class FavoriteApartmentFragment : Fragment() {
         sortHouses.setBackgroundColor(defaultColor)
         sortVilla.setBackgroundColor(defaultColor)
         sortApartments.setBackgroundColor(defaultColor)
+    }
+
+    override fun onDestroyView() {
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+        super.onDestroyView()
     }
 }

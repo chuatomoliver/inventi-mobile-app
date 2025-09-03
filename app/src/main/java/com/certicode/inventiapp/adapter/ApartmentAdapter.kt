@@ -6,16 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
-import com.certicode.inventiapp.activity.FavoriteApartmentContainerAcitivity
+import com.certicode.inventiapp.activity.EmptyContainerActivity
+import com.certicode.inventiapp.databinding.FavoriteApartmentItemBinding
 import com.certicode.inventiapp.fragment.FavoriteApartmentFragment
 import com.certicode.inventiapp.models.ApartmentModel
-import com.certicode.inventiapp.models.FavoriteModel
 
 class ApartmentAdapter(
-    private val apartmentList: List<ApartmentModel>
+    private val apartmentList: List<ApartmentModel>,
+    private val onItemClick: (ApartmentModel) -> Unit,
+    private val fragmentManager: FragmentManager
 ) :
     RecyclerView.Adapter<ApartmentAdapter.ApartmentViewHolder>() {
 
@@ -61,11 +63,18 @@ class ApartmentAdapter(
         holder.ratingText.text = currentApartment.rating.toString()
         holder.priceText.text = currentApartment.price.toString()
 
+        holder.itemView.setOnClickListener {
+            onItemClick(currentApartment)
+        }
+
         holder.favIcon.setOnClickListener({
 
-            val context = holder.itemView.context
-            val intent = Intent(context, FavoriteApartmentContainerAcitivity::class.java)
-            context.startActivity(intent)
+
+            val fragment = FavoriteApartmentFragment()
+            fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
 
         })
     }
