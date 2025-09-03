@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.certicode.inventiapp.databinding.FragmentPaymentMethodsBinding
-import com.certicode.inventiapp.databinding.FragmentProfileBinding
+
+
+import androidx.navigation.fragment.findNavController
 
 class PaymentMethodsFragment: Fragment() {
 
@@ -22,5 +24,15 @@ class PaymentMethodsFragment: Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-}
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }

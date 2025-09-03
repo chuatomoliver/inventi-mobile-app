@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.FragmentProfileBinding
 import com.certicode.inventiapp.fragment.PaymentMethodsFragment
@@ -29,8 +29,12 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.paymentMethodText.setOnClickListener {
-            findNavController().navigate(R.id.navigation_payment_methods)
+        binding.backButton.setOnClickListener { 
+            findNavController().popBackStack()
+        }
+
+        binding.row2Text.setOnClickListener {
+            findNavController(it).navigate(R.id.action_profileFragment_to_paymentMethodsFragment)
         }
     }
 
