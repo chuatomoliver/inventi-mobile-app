@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/InventiApp.iml" filepath="$PROJECT_DIR$/.idea/modules/InventiApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/InventiApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/InventiApp.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/InventiApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/InventiApp.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/InventiApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/InventiApp.app.main.iml" />
