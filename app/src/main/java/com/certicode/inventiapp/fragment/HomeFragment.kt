@@ -12,7 +12,6 @@ import com.certicode.inventiapp.adapter.ApartmentAdapter
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
-import com.certicode.inventiapp.fragment.PropertyFragment
 import com.certicode.inventiapp.models.ApartmentModel
 import com.certicode.inventiapp.models.FeatureModel
 
@@ -57,17 +56,8 @@ class HomeFragment : Fragment() {
         rvApartment.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         rvApartment.adapter = ApartmentAdapter(
             apartmentList,
-            { apartment ->
-                val fragment = PropertyFragment()
-
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .addToBackStack(null)
-                    .commit()
-
-            },
             parentFragmentManager
-            )
+        )
 
         rvApartment.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
