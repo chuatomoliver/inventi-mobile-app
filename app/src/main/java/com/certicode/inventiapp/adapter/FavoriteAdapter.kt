@@ -43,7 +43,7 @@ RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
         holder.title.text = favoriteApartment.title
         holder.location.text = favoriteApartment.location
         holder.price.text = "$${favoriteApartment.price}"
-        holder.periodPrice.text = favoriteApartment.pricePeriod
+        holder.periodPrice.text = " /${favoriteApartment.pricePeriod}"
 
 
     }
