@@ -73,4 +73,9 @@ dependencies {
 
     //Image library
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    //Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
+
 }

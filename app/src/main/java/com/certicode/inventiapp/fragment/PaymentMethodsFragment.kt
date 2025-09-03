@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.certicode.inventiapp.databinding.FragmentPaymentMethodsBinding
 
 
-import androidx.navigation.fragment.findNavController
 
 class PaymentMethodsFragment: Fragment() {
 
@@ -28,7 +27,7 @@ class PaymentMethodsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.backButton.setOnClickListener {
-            findNavController().popBackStack()
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 
@@ -36,3 +35,4 @@ class PaymentMethodsFragment: Fragment() {
         super.onDestroyView()
         _binding = null
     }
+}

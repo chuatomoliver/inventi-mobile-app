@@ -1,15 +1,16 @@
 package com.certicode.inventiapp.fragment
 
 import android.os.Bundle
-import android.text.TextUtils.replace
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+
 import androidx.navigation.fragment.findNavController
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.FragmentProfileBinding
-import com.certicode.inventiapp.fragment.PaymentMethodsFragment
+
 
 
 class ProfileFragment : Fragment() {
@@ -29,12 +30,15 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.backButton.setOnClickListener { 
-            findNavController().popBackStack()
+        binding.backButton.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        binding.row2Text.setOnClickListener {
-            findNavController(it).navigate(R.id.action_profileFragment_to_paymentMethodsFragment)
+        binding.paymentMethodRow.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, PaymentMethodsFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 
