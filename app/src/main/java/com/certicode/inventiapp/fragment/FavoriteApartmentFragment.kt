@@ -113,8 +113,10 @@ class FavoriteApartmentFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
-        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
         super.onDestroyView()
+
+        // Restore search bar & bottom nav when leaving this fragment
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.VISIBLE
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.VISIBLE
     }
 }
