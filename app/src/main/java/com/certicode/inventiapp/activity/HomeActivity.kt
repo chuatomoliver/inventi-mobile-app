@@ -12,6 +12,7 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.adapter.JobAdapter
 import com.certicode.inventiapp.databinding.ActivityHomeBinding
+import com.certicode.inventiapp.fragment.ChatBotFragment
 import com.certicode.inventiapp.models.FeatureModel
 
 
@@ -81,7 +82,18 @@ class HomeActivity : AppCompatActivity() {
 
         val rvFeatures = binding.rvFeatures
         rvFeatures.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvFeatures.adapter = FeatureAdapter(featureList)
+        rvFeatures.adapter = FeatureAdapter(featureList){ feature, position ->
+            when(feature.featureName) {
+                "Chat bot" -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, ChatBotFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
+            }
+        }
+
+
         rvFeatures.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State)
             {
