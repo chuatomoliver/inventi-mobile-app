@@ -23,13 +23,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-
-        <activity android:name=".activity.Home2Activity"></activity>
-        <activity android:name=".activity.MainActivity2" />
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true">
-
         <activity android:name=".activity.MainActivity"
             android:exported="true" >
 
