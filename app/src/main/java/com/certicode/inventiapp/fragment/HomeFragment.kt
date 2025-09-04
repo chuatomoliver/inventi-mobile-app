@@ -12,6 +12,7 @@ import com.certicode.inventiapp.adapter.ApartmentAdapter
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
+import com.certicode.inventiapp.fragment.ChatBotFragment
 import com.certicode.inventiapp.models.ApartmentModel
 import com.certicode.inventiapp.models.FeatureModel
 
@@ -30,7 +31,18 @@ class HomeFragment : Fragment() {
 
         val rvFeatures = binding.rvFeatures
         rvFeatures.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvFeatures.adapter = FeatureAdapter(featureList)
+        rvFeatures.adapter = FeatureAdapter(featureList) { feature, position ->
+            when(feature.featureName) {
+                "Chat bot" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, ChatBotFragment()) // make sure this matches your container id
+                        .addToBackStack(null)
+                        .commit()
+                }
+            }
+        }
+
+
         rvFeatures.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 super.getItemOffsets(outRect, view, parent, state)
