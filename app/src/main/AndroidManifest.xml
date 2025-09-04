@@ -23,9 +23,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true">
+        <activity android:name=".activity.MainActivity"
+            android:exported="true" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.HomeActivity"
-            android:exported="false"/>
-        <activity android:name=".activity.Home2Activity"
-            android:exported="false"/>
+        <activity android:name=".activity.HomeActivity" />
     </application>
 
 </manifest>
