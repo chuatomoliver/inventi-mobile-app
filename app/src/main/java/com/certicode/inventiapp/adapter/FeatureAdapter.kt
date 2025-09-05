@@ -10,7 +10,12 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.models.FeatureModel
 
 
-class FeatureAdapter(private val features: List<FeatureModel>) : RecyclerView.Adapter<FeatureAdapter.FeatureViewHolder>() {
+class FeatureAdapter(
+
+    private val features: List<FeatureModel>,
+    private val onItemClick: (FeatureModel, Int) -> Unit
+
+) : RecyclerView.Adapter<FeatureAdapter.FeatureViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeatureViewHolder
     {
@@ -23,6 +28,10 @@ class FeatureAdapter(private val features: List<FeatureModel>) : RecyclerView.Ad
     override fun onBindViewHolder(holder: FeatureViewHolder, position: Int) {
         val feature = features[position]
         holder.bind(feature)
+        // ✅ Call the click listener here
+        holder.itemView.setOnClickListener {
+            onItemClick(feature, position)
+        }
     }
 
     override fun getItemCount(): Int = features.size
@@ -37,6 +46,8 @@ class FeatureAdapter(private val features: List<FeatureModel>) : RecyclerView.Ad
             // Set data to views
             featureImage.setImageResource(feature.featureLogo)
             featureTitle.text = feature.featureName
+
+
         }
     }
 }
