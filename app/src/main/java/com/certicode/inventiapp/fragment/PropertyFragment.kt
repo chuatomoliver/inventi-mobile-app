@@ -4,8 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.HorizontalScrollView
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +22,30 @@ class PropertyFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_property, container, false)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.rvAgents)
+        dummyDataAgents(view)
+        dummyDataAmmenities(view)
+
+        val bookApartmentBtn = view.findViewById<Button>(R.id.bookApartmentBtn)
+
+        bookApartmentBtn.setOnClickListener({
+
+            val fragment = ReviewSummaryFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        })
+
+        // Hide Top Layout
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+
+        // Hide Bottom Nav
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+        return view
+    }
+
+    private fun dummyDataAmmenities(view: View){
+
         val rvPropertyItem = view.findViewById<RecyclerView>(R.id.rvPropertyItem)
 
         val propertyAmmenities = listOf(
@@ -37,26 +59,30 @@ class PropertyFragment : Fragment() {
             PropertyModel(R.drawable.apartment),
         )
 
-        // Dummy data
+        rvPropertyItem.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        rvPropertyItem.adapter = PropertyAdapter(propertyAmmenities)
+    }
+
+    private fun dummyDataAgents(view: View){
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rvAgents)
+
+        // Agent Dummy data
         val agents = listOf(
-            AgentModel(R.drawable.tompogi, "Tom Oliver Chua", "Licensed Broker"),
-            AgentModel(R.drawable.tompogi, "Jane Doe", "Real Estate Agent"),
-            AgentModel(R.drawable.tompogi, "John Smith", "Property Consultant")
+            AgentModel(R.drawable.tompogi,
+                "Tom Oliver Chua",
+                "Licensed Broker"),
+            AgentModel(R.drawable.tompogi,
+                "Jane Doe",
+                "Real Estate Agent"),
+            AgentModel(R.drawable.tompogi,
+                "John Smith",
+                "Property Consultant")
         )
 
 
-        rvPropertyItem.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvPropertyItem.adapter = PropertyAdapter(propertyAmmenities)
-
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = AgentAdapter(agents)
-
-        // Hide Top Layout
-        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
-
-        // Hide Bottom Nav
-        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
-        return view
     }
 
     override fun onDestroyView() {
