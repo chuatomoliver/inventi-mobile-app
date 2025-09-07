@@ -28,16 +28,15 @@ class MainActivity : AppCompatActivity() {
 
         // Sign In button click listener
         binding.signInButton.setOnClickListener {
-            val fragment = HomeFragment()
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
-                .commit()
+            // For now, just navigate to home as a placeholder
+            val intent = Intent(this, Home2Activity::class.java)
+            startActivity(intent)
         }
 
         // Sign Up text click listener - Navigate to SignUpFragment
         binding.signUpText.setOnClickListener {
-            navigateToFragment(SignUpFragment())
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
 
         binding.fingerprintIconCard.setOnClickListener {
