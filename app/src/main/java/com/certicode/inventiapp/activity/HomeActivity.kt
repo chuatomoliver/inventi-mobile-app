@@ -12,6 +12,7 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.adapter.JobAdapter
 import com.certicode.inventiapp.databinding.ActivityHomeBinding
+import com.certicode.inventiapp.fragment.AmenitiesFragment
 import com.certicode.inventiapp.fragment.ChatBotFragment
 import com.certicode.inventiapp.models.FeatureModel
 
@@ -87,6 +88,13 @@ class HomeActivity : AppCompatActivity() {
                 "Chat bot" -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, ChatBotFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
+
+                "Ammenities" -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AmenitiesFragment())
                         .addToBackStack(null)
                         .commit()
                 }
