@@ -1,5 +1,6 @@
 package com.certicode.inventiapp.activity
 
+import HomeFragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
@@ -27,9 +28,11 @@ class MainActivity : AppCompatActivity() {
 
         // Sign In button click listener
         binding.signInButton.setOnClickListener {
-            // Navigate to HomeActivity after sign in
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+            val fragment = HomeFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         // Sign Up text click listener - Navigate to SignUpFragment
