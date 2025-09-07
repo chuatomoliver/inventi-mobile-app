@@ -1,5 +1,7 @@
-package com.certicode.inventiapp.models
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class FavoriteModel(
     val imagePlaceHolder: Int,
     val tagApartment: String,
@@ -8,6 +10,5 @@ data class FavoriteModel(
     val location: String,
     val price: Int,
     val pricePeriod: String,
-
-    val type: String,
-)
+    val type: String
+) : Parcelable

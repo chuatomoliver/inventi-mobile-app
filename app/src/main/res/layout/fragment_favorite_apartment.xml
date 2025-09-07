@@ -43,6 +43,7 @@
             android:background="@drawable/circle_background"
             android:backgroundTint="@color/blue1"
             android:padding="12dp"
+            android:tint="@color/white"
             android:src="@drawable/arrow_down_sign_to_navigate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

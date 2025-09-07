@@ -1,5 +1,6 @@
 package com.certicode.inventiapp.fragment
 
+import FavoriteModel
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.adapter.FavoriteAdapter
-import com.certicode.inventiapp.models.FavoriteModel
+
 
 
 class FavoriteApartmentFragment : Fragment() {
@@ -34,35 +35,94 @@ class FavoriteApartmentFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_favorite_apartment, container, false)
 
+        onClickFilter(view)
+        favItemList(view)
+        filterList("All")
+
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+
+        return  view
+    }
+
+    private fun onClickFilter(view: View){
         // Buttons
         allProperty = view.findViewById(R.id.allProperty)
         sortHouses = view.findViewById(R.id.sortHouses)
         sortVilla = view.findViewById(R.id.sortVilla)
         sortApartments = view.findViewById(R.id.sortApartments)
 
-        recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
-
-        favoriteList = mutableListOf(
-            FavoriteModel(R.drawable.apartment, "Apartment", 4.5, "Cozy Apartment", "Manila", 25000, "month", "Apartment"),
-            FavoriteModel(R.drawable.apartment, "Villa", 4.8, "Luxury Villa", "Tagaytay", 100000, "month", "Villa"),
-            FavoriteModel(R.drawable.apartment, "House", 4.2, "Family House", "Quezon City", 50000, "month", "House")
-        )
-
-        favoriteAdapter = FavoriteAdapter(favoriteList)
-        recyclerView.adapter = favoriteAdapter
-
         allProperty.setOnClickListener { filterList("All") }
         sortHouses.setOnClickListener { filterList("House") }
         sortVilla.setOnClickListener { filterList("Villa") }
         sortApartments.setOnClickListener { filterList("Apartment") }
+    }
+    private fun favItemList(view: View){
 
-        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
-        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
-        filterList("All")
-        return  view
+        favoriteList = mutableListOf(
+
+            FavoriteModel(
+                R.drawable.apartment,
+                "Apartment", 4.5,
+                "Cozy Apartment",
+                "Manila",
+                25000,
+                "month",
+                "Apartment"
+            ),
+
+            FavoriteModel(
+                R.drawable.apartment,
+                "Villa", 4.8,
+                "Luxury Villa",
+                "Tagaytay",
+                100000,
+                "month",
+                "Villa"
+            ),
+
+            FavoriteModel(
+                R.drawable.apartment,
+                "House",
+                4.2,
+                "Family House",
+                "Quezon City",
+                50000,
+                "month",
+                "House"
+            ),
+
+            FavoriteModel(
+                R.drawable.apartment,
+                "House",
+                4.2, "Family House",
+                "Quezon City",
+                50000,
+                "month", "House"
+            ),
+            FavoriteModel(
+                R.drawable.apartment,
+                "House",
+                4.2,
+                "Family House",
+                "Quezon City",
+                50000,
+                "month",
+                "House"
+            ),
+        )
+
+        favoriteAdapter = FavoriteAdapter(favoriteList) { favorite ->
+            // Handle item click here, e.g., show BottomSheetDialog
+            val bottomSheet = FavoriteRemoveDialogFragment.newInstance(favorite)
+            bottomSheet.show(parentFragmentManager, "RemoveFavoriteDialog")
+        }
+
+        recyclerView.adapter = favoriteAdapter
+
     }
 
     private fun filterList(type: String) {
@@ -98,8 +158,6 @@ class FavoriteApartmentFragment : Fragment() {
         } else {
             favoriteList.filter { it.type.equals(type, ignoreCase = true) }
         }
-
-
 
         favoriteAdapter.updateList(filteredList)
     }
