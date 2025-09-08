@@ -36,25 +36,28 @@ class AmenitiesFragment : Fragment() {
                 4.5,
                 "Woodland, Pasay City",
                 "Sports Amenities",
-                "Basketball Court"
+                "Basketball Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             ),
             AmenitiesModel(
-                R.drawable.basketball_court,
+                R.drawable.tennis_bg,
                 320,
                 2000.0,
                 4.2,
                 "Green Park, Makati",
                 "Community Facility",
-                "Tennis Court"
+                "Tennis Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             ),
                     AmenitiesModel(
-                    R.drawable.basketball_court,
+                    R.drawable.pool_bg,
             320,
             2000.0,
             4.2,
             "Green Park, Makati",
             "Community Facility",
-            "Tennis Court"
+            "Swimming Pool",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         ),
             AmenitiesModel(
                 R.drawable.basketball_court,
@@ -63,7 +66,8 @@ class AmenitiesFragment : Fragment() {
                 4.2,
                 "Green Park, Makati",
                 "Community Facility",
-                "Tennis Court"
+                "Tennis Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             ),
             AmenitiesModel(
                 R.drawable.basketball_court,
@@ -72,7 +76,8 @@ class AmenitiesFragment : Fragment() {
                 4.2,
                 "Green Park, Makati",
                 "Community Facility",
-                "Tennis Court"
+                "Tennis Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             ),
             AmenitiesModel(
                 R.drawable.basketball_court,
@@ -81,7 +86,8 @@ class AmenitiesFragment : Fragment() {
                 4.2,
                 "Green Park, Makati",
                 "Community Facility",
-                "Tennis Court"
+                "Tennis Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             ),
             AmenitiesModel(
                 R.drawable.basketball_court,
@@ -90,7 +96,8 @@ class AmenitiesFragment : Fragment() {
                 4.2,
                 "Green Park, Makati",
                 "Community Facility",
-                "Tennis Court"
+                "Tennis Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             ),
             AmenitiesModel(
                 R.drawable.basketball_court,
@@ -99,7 +106,8 @@ class AmenitiesFragment : Fragment() {
                 4.2,
                 "Green Park, Makati",
                 "Community Facility",
-                "Tennis Court"
+                "Tennis Court",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             )
 
         )
@@ -108,7 +116,15 @@ class AmenitiesFragment : Fragment() {
         requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
         // Hide Bottom Nav
         requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
-        amenityAdapter = AmenityAdapter(amenitiesList)
+
+        amenityAdapter = AmenityAdapter(amenitiesList){selectedAmenity ->
+            val fragment = BookAmenityFragment.newInstance(selectedAmenity)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         rvAmenity.adapter = amenityAdapter
         return view
     }
@@ -119,5 +135,7 @@ class AmenitiesFragment : Fragment() {
         requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.VISIBLE
         requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.VISIBLE
     }
+
+
 
 }

@@ -10,7 +10,8 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.models.AmenitiesModel
 
 class AmenityAdapter(
-    private val amenitiesList: List<AmenitiesModel>
+    private val amenitiesList: List<AmenitiesModel>,
+    private val onItemClick: (AmenitiesModel) -> Unit
 ) : RecyclerView.Adapter<AmenityAdapter.AmenityViewHolder>() {
 
     // ViewHolder class
@@ -42,6 +43,10 @@ class AmenityAdapter(
         holder.ratingText.text = item.rating.toString()
         holder.reviewsText.text = "(${item.reviews} reviews)"
         holder.tagAmenity.text = item.tagAmenity
+
+        holder.itemView.setOnClickListener {
+            onItemClick(item)
+        }
     }
 
     override fun getItemCount(): Int = amenitiesList.size

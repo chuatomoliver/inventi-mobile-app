@@ -1,6 +1,10 @@
 package com.certicode.inventiapp.models
 
-class AmenitiesModel (
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class AmenitiesModel (
     val imagePlaceHolder: Int,
     val reviews: Int,
     val amenityFee: Double,
@@ -8,4 +12,5 @@ class AmenitiesModel (
     val location: String,
     val tagAmenity: String,
     val amenitiesTitle: String,
-)
+    val description: String,
+) : Parcelable
