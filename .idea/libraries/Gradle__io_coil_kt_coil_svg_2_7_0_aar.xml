@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: io.coil-kt:coil-svg:2.7.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/8.13/transforms/5094916198a20937df71e138181e0eb6/transformed/coil-svg-2.7.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/8.13/transforms/5094916198a20937df71e138181e0eb6/transformed/coil-svg-2.7.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.13/transforms/88059deb7257ab195c67be4847e5b0c0/transformed/coil-svg-2.7.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/8.13/transforms/88059deb7257ab195c67be4847e5b0c0/transformed/coil-svg-2.7.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.coil-kt/coil-svg/2.7.0/521ed0d1e377c2ebec73899dc84636f74f82b628/coil-svg-2.7.0-javadoc.jar!/" />
