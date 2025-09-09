@@ -9,7 +9,8 @@ import kotlinx.parcelize.Parcelize
 data class AgentListModel (
     val imagePlaceHolder: Int,
     val agentName: String,
-    val agentProfession: String
+    val agentProfession: String,
+    val description: String
 ) : Parcelable
 
 

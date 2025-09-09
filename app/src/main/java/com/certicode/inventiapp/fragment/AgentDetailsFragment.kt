@@ -8,13 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.models.AgentListModel
 
 
 class AgentDetailsFragment : Fragment() {
 
+    private var agents: AgentListModel? = null
     private lateinit var imagePlaceHolder: ImageView
     private lateinit var agentName: TextView
     private lateinit var agentProfession: TextView
+    private lateinit var description: TextView
 
 
     override fun onCreateView(
@@ -27,21 +30,34 @@ class AgentDetailsFragment : Fragment() {
         imagePlaceHolder = view.findViewById<ImageView>(R.id.imagePlaceHolder)
         agentName = view.findViewById<TextView>(R.id.agentName)
         agentProfession = view.findViewById<TextView>(R.id.agentProfession)
+        description = view.findViewById<TextView>(R.id.description)
 
-        arguments?.let {
-            bundle ->
-            val imageRes = bundle.getInt("image")
-            val name = bundle.getString("name")
-            val profession = bundle.getString("profession")
-
-
-            imagePlaceHolder.setImageResource(imageRes)
-            agentName.text = name
-            agentProfession.text = profession
+        agents = arguments?.getParcelable(ARG_AGENTS)
+        agents?.let { agent ->
+            imagePlaceHolder.setImageResource(agent.imagePlaceHolder)
+            agentName.text = agent.agentName
+            agentProfession.text = agent.agentProfession
+            description.text = agent.description
         }
 
         return view
     }
 
+    companion object{
+        private const val ARG_AGENTS = "agents"
+
+        //Usage for AgentListFragment for parcalable item
+        fun newInstance(agents: AgentListModel) : AgentDetailsFragment{
+            val fragment = AgentDetailsFragment()
+
+            val bundle = Bundle().apply {
+                putParcelable(ARG_AGENTS, agents)
+
+            }
+
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
 
 }

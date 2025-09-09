@@ -27,7 +27,7 @@ class AgentListFragment : Fragment() {
         agentList(view)
         rvAgentList = view.findViewById<RecyclerView>(R.id.rvAgentList)
         agentListAdapter = AgentListAdapter(agentListModel) { agent ->
-            val fragment = AgentDetailsFragment()
+            val fragment = AgentDetailsFragment.newInstance(agent) // Conected to Companion Object AgentDetailsFragment
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
@@ -48,61 +48,27 @@ class AgentListFragment : Fragment() {
 
     private fun agentList(view: View){
         agentListModel = listOf(
+
             AgentListModel(R.drawable.tompogi,
-                "James Bond",
-                "License Broker"
-            ),
-            AgentListModel(R.drawable.tompogi,
-                "Natasha Romanoff",
-                "Care Giver"
+                "Tom Bond",
+                "Care Broker",
+                "Tom Oliver Chua is a licensed broker, fully authorized to facilitate and manage real estate transactions with professionalism and integrity"
             ),
             AgentListModel(R.drawable.tompogi,
-                "Ethan Hunt",
-                "VIP Agent"
-            ),
-            AgentListModel(R.drawable.tompogi,
-                "James Bond",
-                "License Broker"
-            ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "Natasha Romanoff",
-                "Care Giver"
-            ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "Ethan Hunt",
-                "VIP Agent"
+                "John Bond",
+                "Care Giver",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             ),
             AgentListModel(R.drawable.tompogi,
                 "James Bond",
-                "License Broker"
+                "License Broker",
+                "Tom Oliver Chua is a licensed broker, fully authorized to facilitate and manage real estate transactions with professionalism and integrity"
             ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "Natasha Romanoff",
-                "Care Giver"
+            AgentListModel(R.drawable.tompogi,
+                "Rud Bond",
+                "Jungle",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "Ethan Hunt",
-                "VIP Agent"
-            ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "James Bond",
-                "License Broker"
-            ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "Natasha Romanoff",
-                "Care Giver"
-            ),
-            AgentListModel(
-                R.drawable.tompogi,
-                "Ethan Hunt",
-                "VIP Agent"
-            )
         )
     }
     override fun onDestroy() {

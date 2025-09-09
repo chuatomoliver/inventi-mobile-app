@@ -29,6 +29,7 @@ class AgentListAdapter
         holder.imagePlaceHolder.setImageResource(agent.imagePlaceHolder)
         holder.agentName.text = agent.agentName
         holder.agentProfession.text = agent.agentProfession
+        holder.description.text = agent.description
 
         holder.itemView.setOnClickListener {
             onItemClick(agent)
@@ -40,6 +41,8 @@ class AgentListAdapter
         val imagePlaceHolder = itemView.findViewById<ImageView>(R.id.imagePlaceHolder)
         val agentName = itemView.findViewById<TextView>(R.id.agentName)
         val agentProfession = itemView.findViewById<TextView>(R.id.agentProfession)
+
+        val description = itemView.findViewById<TextView>(R.id.description)
 
 
     }
