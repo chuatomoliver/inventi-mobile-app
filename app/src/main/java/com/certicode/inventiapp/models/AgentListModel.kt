@@ -1,12 +1,15 @@
 package com.certicode.inventiapp.models
 
+import android.os.Parcelable
 import android.widget.ImageView
 import android.widget.TextView
+import kotlinx.parcelize.Parcelize
 
-class AgentListModel (
+@Parcelize
+data class AgentListModel (
     val imagePlaceHolder: Int,
     val agentName: String,
     val agentProfession: String
-)
+) : Parcelable
 
 

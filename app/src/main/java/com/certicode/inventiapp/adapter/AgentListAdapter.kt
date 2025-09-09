@@ -7,11 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.fragment.AgentDetailsFragment
+import com.certicode.inventiapp.fragment.AgentListFragment
 import com.certicode.inventiapp.models.AgentListModel
 
 class AgentListAdapter
     (
-    private val agentList: List<AgentListModel>
+    private val agentList: List<AgentListModel>,
+    private val onItemClick: (AgentListModel) -> Unit
             )
     : RecyclerView.Adapter<AgentListAdapter.AgentViewHolder>(){
 
@@ -26,6 +29,10 @@ class AgentListAdapter
         holder.imagePlaceHolder.setImageResource(agent.imagePlaceHolder)
         holder.agentName.text = agent.agentName
         holder.agentProfession.text = agent.agentProfession
+
+        holder.itemView.setOnClickListener {
+            onItemClick(agent)
+        }
     }
 
     class   AgentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -33,6 +40,8 @@ class AgentListAdapter
         val imagePlaceHolder = itemView.findViewById<ImageView>(R.id.imagePlaceHolder)
         val agentName = itemView.findViewById<TextView>(R.id.agentName)
         val agentProfession = itemView.findViewById<TextView>(R.id.agentProfession)
+
+
     }
 
     override fun getItemCount() = agentList.size
