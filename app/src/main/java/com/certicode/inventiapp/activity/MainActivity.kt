@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // Sign In button click listener
         binding.signInButton.setOnClickListener {
             // Navigate to HomeActivity after sign in
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, Home2Activity::class.java)
             startActivity(intent)
         }
 

@@ -32,7 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.HomeActivity"
+            android:exported="false"/>
+        <activity android:name=".activity.Home2Activity"
+            android:exported="false"/>
     </application>
 
 </manifest>
