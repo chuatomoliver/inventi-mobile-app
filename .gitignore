@@ -1,31 +1,19 @@
 # Gradle
 .gradle/
 build/
-*/build/
 
-# Local configuration
-local.properties
-
-# IDE files
+# Android Studio
 .idea/
 *.iml
 
-# Log files
-*.log
+# Local settings
+local.properties
+.gradle/
+build/
+.idea/
+*.iml
 
-# Android Studio captures
+# Others
 captures/
-
-# NDK
-.obj/
-.externalNativeBuild/
-
-# Generated files
-gen/
-
-# Firebase/Google services
-google-services.json
-
-# Keystore files
-*.jks
-*.keystore
+.externalNativeBuild
+.cxx/
