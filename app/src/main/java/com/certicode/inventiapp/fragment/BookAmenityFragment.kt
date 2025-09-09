@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.models.AmenitiesModel
+import org.w3c.dom.Text
 
 
 class BookAmenityFragment : Fragment() {
@@ -22,6 +23,9 @@ class BookAmenityFragment : Fragment() {
     private lateinit var tagText: TextView
 
     private lateinit var description: TextView
+    private lateinit var amenityTag: TextView
+
+    private lateinit var amenityFee: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +39,9 @@ class BookAmenityFragment : Fragment() {
         locationText = view.findViewById(R.id.location_text)
         ratingText = view.findViewById(R.id.rating_text)
         reviewsText = view.findViewById(R.id.amenityReviews)
-        tagText = view.findViewById(R.id.tag_apartment)
         description = view.findViewById(R.id.description)
+        amenityTag = view.findViewById(R.id.amenityTag)
+        amenityFee = view.findViewById(R.id.amenityFee)
 
         uiSetup()
         return view
@@ -51,8 +56,10 @@ class BookAmenityFragment : Fragment() {
             locationText.text = a.location
             ratingText.text = a.rating.toString()
             reviewsText.text = "(${a.reviews} reviews)"
-            tagText.text = a.tagAmenity
+            amenityTag.text = a.tagAmenity
             description.text = a.description
+            amenityFee.text = "$${a.amenityFee}"
+
         }
     }
     companion object {
