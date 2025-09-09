@@ -12,6 +12,7 @@ import com.certicode.inventiapp.adapter.ApartmentAdapter
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
+import com.certicode.inventiapp.fragment.AmenitiesFragment
 import com.certicode.inventiapp.fragment.ChatBotFragment
 import com.certicode.inventiapp.models.ApartmentModel
 import com.certicode.inventiapp.models.FeatureModel
@@ -36,6 +37,12 @@ class HomeFragment : Fragment() {
                 "Chat bot" -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, ChatBotFragment()) // make sure this matches your container id
+                        .addToBackStack(null)
+                        .commit()
+                }
+                "Ammenities" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AmenitiesFragment())
                         .addToBackStack(null)
                         .commit()
                 }
@@ -91,8 +98,10 @@ class HomeFragment : Fragment() {
                 outRect.right = outRect.right + 18
             }
         })
+
         return view
     }
+
 }
 
 val featureList = listOf(
@@ -150,4 +159,6 @@ val  apartmentList = listOf(
         rating = 4.9,
         price = 2200
     )
+
+
 )

@@ -1,5 +1,6 @@
 package com.certicode.inventiapp.adapter
 
+
 import FavoriteModel
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,7 @@ class FavoriteAdapter(
     private val onItemClick: (favorite: FavoriteModel) -> Unit
 
 ):
-RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
+    RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
 
     fun updateList(newList: List<FavoriteModel>) {
         favoriteList = newList
