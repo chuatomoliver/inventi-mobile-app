@@ -1,49 +1,29 @@
-
-# Gradle
+# Gradle build files
 .gradle/
 build/
-*/build/
 
 # Local configuration
 local.properties
-
-# IDE files
-.idea/
 *.iml
 
-# Log files
+# IDEA/Android Studio files
+.idea/
+.idea/*
+
+# Logs
 *.log
 
-# Android Studio captures
+# Android specific
 captures/
-
-# NDK
-.obj/
-.externalNativeBuild/
-
-# Generated files
-gen/
-
-# Firebase/Google services
-google-services.json
-
-# Keystore files
-*.jks
-*.keystore
-=======
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
 .externalNativeBuild
-.cxx
-local.properties
+.cxx/
 
+# Gradle wrapper
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
