@@ -27,7 +27,7 @@ class AmenitiesFragment : Fragment() {
         rvAmenity = view.findViewById(R.id.rvAmenities)
         rvAmenity.layoutManager = LinearLayoutManager(requireContext())
 
-        // Sample Data (replace with Firebase / API later if needed)
+
         amenitiesList = listOf(
             AmenitiesModel(
                 R.drawable.basketball_court,
