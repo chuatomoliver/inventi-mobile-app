@@ -1,5 +1,4 @@
-
-# Gradle
+# Gradle files
 .gradle/
 build/
 */build/
@@ -7,43 +6,26 @@ build/
 # Local configuration
 local.properties
 
-# IDE files
-.idea/
-*.iml
-
 # Log files
 *.log
 
-# Android Studio captures
-captures/
+# Android Studio files
+.idea/
+*.iml
+*.ipr
+*.iws
 
-# NDK
-.obj/
-.externalNativeBuild/
-
-# Generated files
-gen/
-
-# Firebase/Google services
-google-services.json
-
-# Keystore files
+# Keystore files (DO NOT COMMIT YOUR KEYSTORE)
 *.jks
 *.keystore
-=======
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
 
+# Gradle Wrapper
+gradle/wrapper/gradle-wrapper.properties
+
+# Misc
+.DS_Store
+/out/
+
+# Crashlytics
+com_crashlytics_export_strings.xml
+fabric.properties
