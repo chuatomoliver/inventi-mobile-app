@@ -32,6 +32,13 @@ class AgentDetailsFragment : Fragment() {
         agentProfession = view.findViewById<TextView>(R.id.agentProfession)
         description = view.findViewById<TextView>(R.id.description)
 
+
+        agentFetchDetails()
+
+        return view
+    }
+
+    private fun agentFetchDetails(){
         agents = arguments?.getParcelable(ARG_AGENTS)
         agents?.let { agent ->
             imagePlaceHolder.setImageResource(agent.imagePlaceHolder)
@@ -39,10 +46,7 @@ class AgentDetailsFragment : Fragment() {
             agentProfession.text = agent.agentProfession
             description.text = agent.description
         }
-
-        return view
     }
-
     companion object{
         private const val ARG_AGENTS = "agents"
 

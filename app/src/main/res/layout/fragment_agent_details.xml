@@ -171,6 +171,7 @@
             android:backgroundTint="@color/bluebg"
             android:padding="8dp"
             android:text="Book Agent"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.866"
@@ -231,8 +232,8 @@
                 android:id="@+id/horizontalScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_rounded"
+                android:layout_marginTop="10dp"
+                android:layout_margin="12dp"
                 android:fillViewport="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -249,15 +250,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@android:color/transparent"
+                        android:backgroundTint="@color/bluebg"
                         android:text="About"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/white" />
 
-                    <View
-                        android:id="@+id/view2"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/darker_gray" />
 
                     <Button
                         android:layout_width="0dp"
@@ -267,18 +263,13 @@
                         android:text="Review"
                         android:textColor="@color/black" />
 
-                    <View
-                        android:id="@+id/view3"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/darker_gray" />
 
                     <Button
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="Date"
+                        android:text="Experience"
                         android:textColor="@color/black" />
 
                 </LinearLayout>
