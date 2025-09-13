@@ -63,7 +63,7 @@
             android:text="4.5"
             android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:drawableStart="@drawable/ic_star"
+            android:drawableStart="@drawable/ic_star_gold"
             android:drawablePadding="4dp"
             android:gravity="center_vertical"
             android:layout_marginEnd="8dp"

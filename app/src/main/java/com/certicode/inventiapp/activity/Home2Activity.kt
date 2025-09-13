@@ -9,20 +9,6 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.ActivityHome2Binding
 import com.certicode.inventiapp.fragment.*
 
-// Define arrays for the unselected and selected icon drawables
-val unselectedIcons = arrayOf(
-    R.drawable.ic_home,
-    R.drawable.ic_search,
-    R.drawable.ic_location,
-    R.drawable.ic_profile2
-)
-
-val selectedIcons = arrayOf(
-    R.drawable.ic_home_selected,
-    R.drawable.ic_search,
-    R.drawable.ic_location,
-    R.drawable.ic_profile2
-)
 
 private val fragments = arrayOf(
     HomeFragment(),
@@ -32,6 +18,21 @@ private val fragments = arrayOf(
 )
 
 class Home2Activity : AppCompatActivity() {
+
+    // Define arrays for the unselected and selected icon drawables
+    val unselectedIcons = arrayOf(
+        R.drawable.ic_home,
+        R.drawable.ic_search,
+        R.drawable.ic_location,
+        R.drawable.ic_profile2
+    )
+
+    val selectedIcons = arrayOf(
+        R.drawable.ic_home_selected,
+        R.drawable.ic_search,
+        R.drawable.ic_location,
+        R.drawable.ic_profile2
+    )
 
     private lateinit var binding: ActivityHome2Binding
     private var activeFragmentIndex = 0
