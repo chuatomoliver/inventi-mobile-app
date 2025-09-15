@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-import androidx.navigation.fragment.findNavController
+
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.FragmentProfileBinding
 
@@ -37,6 +37,20 @@ class ProfileFragment : Fragment() {
         binding.paymentMethodRow.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, PaymentMethodsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.editProfileRow.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, EditProfileFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.completeProfileButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, CompleteProfileFragment())
                 .addToBackStack(null)
                 .commit()
         }

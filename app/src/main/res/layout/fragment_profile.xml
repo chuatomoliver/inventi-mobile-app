@@ -32,7 +32,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
-            android:text="Create Account"
+            android:text="Profile"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,13 +44,22 @@
             android:id="@+id/settingUpdateImageClient"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/person"
             app:civ_border_color="@color/blue"
             app:civ_border_width="1dp"
-            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+        <ImageView
+            android:id="@+id/complete_profile_button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/bg_edit_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/settingUpdateImageClient"
+            app:layout_constraintEnd_toEndOf="@+id/settingUpdateImageClient" />
 
         <TextView
             android:id="@+id/titleText2"
@@ -67,53 +76,62 @@
             app:layout_constraintTop_toBottomOf="@+id/settingUpdateImageClient" />
 
         <!-- Row 1 -->
-
-        <ImageView
-            android:id="@+id/row1_icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:src="@drawable/profile"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleText2" />
-
-        <TextView
-            android:id="@+id/row1_text"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/edit_profile_row"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Edit Profile"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/row1_icon"
-            app:layout_constraintEnd_toStartOf="@+id/row1_arrow"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/row1_icon"
+            android:layout_marginTop="48dp"
             app:layout_constraintTop_toBottomOf="@+id/titleText2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/row1_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/row1_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Edit Profile"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/row1_icon"
+                app:layout_constraintEnd_toStartOf="@id/row1_arrow"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/row1_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/arrow_left"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Row 2 -->
-
-        <ImageView
-            android:id="@+id/row1_arrow"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/arrow_left"
-            app:layout_constraintBottom_toBottomOf="@+id/row1_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/row1_icon"
-            app:layout_constraintVertical_bias="0.125" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/payment_method_row"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/row1_icon"
+            app:layout_constraintTop_toBottomOf="@+id/edit_profile_row"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true"
@@ -140,8 +158,8 @@
                 android:text="Payment Methods"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/row2_icon"
-                app:layout_constraintEnd_toStartOf="@+id/row2_arrow"
+                app:layout_constraintStart_toEndOf="@id/row2_icon"
+                app:layout_constraintEnd_toStartOf="@id/row2_arrow"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -178,10 +196,10 @@
             android:text="Settings"
             android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/row3_icon"
-            app:layout_constraintEnd_toStartOf="@+id/row3_arrow"
-            app:layout_constraintTop_toTopOf="@+id/row3_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row3_icon"/>
+            app:layout_constraintStart_toEndOf="@id/row3_icon"
+            app:layout_constraintEnd_toStartOf="@id/row3_arrow"
+            app:layout_constraintTop_toTopOf="@id/row3_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row3_icon"/>
 
         <ImageView
             android:id="@+id/row3_arrow"
@@ -190,8 +208,8 @@
             android:layout_marginEnd="16dp"
             android:src="@drawable/arrow_left"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/row3_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row3_icon"/>
+            app:layout_constraintTop_toTopOf="@id/row3_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row3_icon"/>
 
         <!-- Row 4 -->
         <ImageView
@@ -214,10 +232,10 @@
             android:text="Help Center"
             android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/row4_icon"
-            app:layout_constraintEnd_toStartOf="@+id/row4_arrow"
-            app:layout_constraintTop_toTopOf="@+id/row4_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row4_icon"/>
+            app:layout_constraintStart_toEndOf="@id/row4_icon"
+            app:layout_constraintEnd_toStartOf="@id/row4_arrow"
+            app:layout_constraintTop_toTopOf="@id/row4_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row4_icon"/>
 
         <ImageView
             android:id="@+id/row4_arrow"
@@ -226,8 +244,8 @@
             android:layout_marginEnd="16dp"
             android:src="@drawable/arrow_left"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/row4_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row4_icon"/>
+            app:layout_constraintTop_toTopOf="@id/row4_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row4_icon"/>
 
         <!-- Row 5 -->
         <ImageView
@@ -250,9 +268,9 @@
             android:text="Private Policy"
             android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/row5_icon"
-            app:layout_constraintEnd_toStartOf="@+id/row5_arrow"
-            app:layout_constraintTop_toTopOf="@+id/row5_icon"
+            app:layout_constraintStart_toEndOf="@id/row5_icon"
+            app:layout_constraintEnd_toStartOf="@id/row5_arrow"
+            app:layout_constraintTop_toTopOf="@id/row5_icon"
             app:layout_constraintBottom_toBottomOf="@+id/row5_icon"/>
 
         <ImageView
@@ -262,8 +280,8 @@
             android:layout_marginEnd="16dp"
             android:src="@drawable/arrow_left"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/row5_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row5_icon"/>
+            app:layout_constraintTop_toTopOf="@id/row5_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row5_icon"/>
 
 
         <!-- Row 5 -->
@@ -287,10 +305,10 @@
             android:text="Logout"
             android:textColor="#000000"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/row6_icon"
-            app:layout_constraintEnd_toStartOf="@+id/row6_arrow"
-            app:layout_constraintTop_toTopOf="@+id/row6_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row6_icon"/>
+            app:layout_constraintStart_toEndOf="@id/row6_icon"
+            app:layout_constraintEnd_toStartOf="@id/row6_arrow"
+            app:layout_constraintTop_toTopOf="@id/row6_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row6_icon"/>
 
         <ImageView
             android:id="@+id/row6_arrow"
@@ -299,8 +317,8 @@
             android:layout_marginEnd="16dp"
             android:src="@drawable/arrow_left"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/row6_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/row6_icon"/>
+            app:layout_constraintTop_toTopOf="@id/row6_icon"
+            app:layout_constraintBottom_toBottomOf="@id/row6_icon"/>
 
 
 

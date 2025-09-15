@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_profileFragment_to_paymentMethodsFragment"
             app:destination="@id/paymentMethodsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/completeProfileFragment" />
     </fragment>
 
     <fragment
@@ -20,9 +23,10 @@
         android:name="com.certicode.inventiapp.fragment.PaymentMethodsFragment"
         android:label="PaymentMethodsFragment" />
 
-
-
-
-
+    <fragment
+        android:id="@+id/completeProfileFragment"
+        android:name="com.certicode.inventiapp.fragment.CompleteProfileFragment"
+        android:label="fragment_complete_profile"
+        tools:layout="@layout/fragment_complete_profile" />
 
 </navigation>
