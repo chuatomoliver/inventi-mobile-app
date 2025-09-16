@@ -12,6 +12,7 @@ import com.certicode.inventiapp.adapter.ApartmentAdapter
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
+import com.certicode.inventiapp.fragment.AgentListFragment
 
 import com.certicode.inventiapp.fragment.AmenitiesFragment
 import com.certicode.inventiapp.fragment.BookingListFragment
@@ -35,6 +36,13 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.tvViewAll.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, AgentListFragment()) // make sure this matches your container id
+                .addToBackStack(null)
+                .commit()
+        }
+        
         val rvFeatures = binding.rvFeatures
         rvFeatures.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         rvFeatures.adapter = FeatureAdapter(featureList) { feature, position ->
