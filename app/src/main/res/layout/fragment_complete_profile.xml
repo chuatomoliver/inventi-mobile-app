@@ -22,37 +22,37 @@
             app:tint="@color/blue" />
 
 
-
         <TextView
             android:id="@+id/completeProfileLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Complete Profile"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.437"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/completeProfileSubLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="44dp"
             android:layout_marginEnd="40dp"
             android:fontFamily="@font/poppins"
             android:justificationMode="inter_word"
-            android:textAlignment="center"
             android:text="Don't worry, only you can see your personal data. No one else can see it"
+            android:textAlignment="center"
             android:textColor="#9A9797"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/completeProfileLabel" />
-
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/settingUpdateImageClient"
@@ -96,8 +96,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="32dp"
+            app:boxBackgroundColor="#F1EAEA"
+            app:boxStrokeWidth="0dp"
             app:boxStrokeColor="@color/blue"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameLabel">
 
@@ -129,8 +135,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="32dp"
+            app:boxBackgroundColor="#F1EAEA"
+            app:boxStrokeWidth="0dp"
             app:boxStrokeColor="@color/blue"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumberLabel">
 
@@ -168,6 +180,14 @@
             android:entries="@array/gender_array"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
+            app:boxBackgroundColor="#F1EAEA"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeColor="@color/blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/genderLabel" />

@@ -1,3 +1,5 @@
+package com.certicode.inventiapp.fragment
+
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater

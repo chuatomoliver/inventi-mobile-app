@@ -21,7 +21,6 @@
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
         android:text="Payment Methods"
@@ -30,14 +29,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/paymentLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Cash Payment"
         android:textColor="#000000"
@@ -67,7 +66,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableStart="@drawable/cash_icon"
+            android:drawablePadding="8dp"
             android:fontFamily="@font/poppins_semibold"
+            android:gravity="center_vertical"
             android:text="Cash"
             android:textColor="#9A9797"
             android:textSize="16sp" />
@@ -76,7 +78,8 @@
             android:id="@+id/paymentOption1_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp" />
+            android:minHeight="0dp"
+            app:buttonTint="@color/blue" />
     </LinearLayout>
 
     <TextView
@@ -114,6 +117,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableStart="@drawable/new_card_icon"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
             android:fontFamily="@font/poppins_semibold"
             android:text="Add new card"
             android:textColor="#9A9797"
@@ -123,7 +129,8 @@
             android:id="@+id/paymentOption2_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp" />
+            android:minHeight="0dp"
+            app:buttonTint="@color/blue" />
     </LinearLayout>
 
 
@@ -162,6 +169,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableStart="@drawable/paypal_icon"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
             android:fontFamily="@font/poppins_semibold"
             android:text="PayPal"
             android:textColor="#9A9797"
@@ -171,7 +181,8 @@
             android:id="@+id/paymentOption3_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp" />
+            android:minHeight="0dp"
+            app:buttonTint="@color/blue" />
     </LinearLayout>
 
     <LinearLayout
@@ -195,6 +206,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawableStart="@drawable/bank_transfer_icon"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
             android:fontFamily="@font/poppins_semibold"
             android:text="Bank Transfer"
             android:textColor="#9A9797"
@@ -204,7 +218,23 @@
             android:id="@+id/paymentOption4_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="0dp" />
+            android:minHeight="0dp"
+            app:buttonTint="@color/blue" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/addPaymentMethod"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="@color/blue"
+        android:text="Update"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentOption4_layout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

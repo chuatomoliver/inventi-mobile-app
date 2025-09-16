@@ -2,7 +2,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_nav">
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.certicode.inventiapp.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.certicode.inventiapp.fragment.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <fragment
+        android:id="@+id/catFragment"
+        android:name="com.certicode.inventiapp.fragment.CatFragment"
+        android:label="fragment_cat"
+        tools:layout="@layout/fragment_cat" />
+
 
     <fragment
         android:id="@+id/profileFragment"
@@ -15,13 +35,52 @@
             app:destination="@id/paymentMethodsFragment" />
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_completeProfileFragment"
             app:destination="@id/completeProfileFragment" />
     </fragment>
 
     <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.certicode.inventiapp.fragment.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
         android:id="@+id/paymentMethodsFragment"
         android:name="com.certicode.inventiapp.fragment.PaymentMethodsFragment"
-        android:label="PaymentMethodsFragment" />
+        android:label="PaymentMethodsFragment" >
+        <action
+            android:id="@+id/action_paymentMethodsFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.certicode.inventiapp.fragment.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card" >
+        <action
+            android:id="@+id/action_addCardFragment_to_successAddCardFragment"
+            app:destination="@+id/successAddCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successAddCardFragment"
+        android:name="com.certicode.inventiapp.fragment.SuccessAddCardFragment"
+        android:label="fragment_success_add_card"
+        tools:layout="@layout/fragment_success_add_card" >
+        <action
+            android:id="@+id/action_successAddCardFragment_to_viewEReceiptFragment"
+            app:destination="@+id/viewEReceiptFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewEReceiptFragment"
+        android:name="com.certicode.inventiapp.fragment.ViewEReceiptFragment"
+        android:label="fragment_view_e_receipt"
+        tools:layout="@layout/fragment_view_e_receipt" />
 
     <fragment
         android:id="@+id/completeProfileFragment"

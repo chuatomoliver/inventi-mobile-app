@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.Fragment
+import com.certicode.inventiapp.R
+import androidx.navigation.fragment.findNavController
 import com.certicode.inventiapp.databinding.FragmentPaymentMethodsBinding
 
 
@@ -44,6 +46,17 @@ class PaymentMethodsFragment: Fragment() {
         }
         binding.paymentOption4Layout.setOnClickListener {
             selectRadioButton(binding.paymentOption4Radio)
+        }
+
+        binding.addPaymentMethod.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, AddCardFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.addPaymentMethod.setOnClickListener {
+            findNavController().navigate(R.id.action_paymentMethodsFragment_to_addCardFragment)
         }
 
         // Also handle clicks on the radio buttons themselves

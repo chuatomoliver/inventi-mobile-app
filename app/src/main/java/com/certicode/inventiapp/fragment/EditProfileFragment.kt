@@ -34,7 +34,7 @@ class EditProfileFragment : Fragment() {
         // Pre-fill with some dummy data
         binding.nameInput.setText("John Doe")
         binding.phoneNumberInput.setText("+639123456789")
-        binding.genderSpinner.setSelection(0) // Male
+        binding.genderSpinner.setSelection(0)
 
         binding.backButton.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
