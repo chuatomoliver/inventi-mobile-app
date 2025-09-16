@@ -13,6 +13,7 @@ import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
 import com.certicode.inventiapp.fragment.AmenitiesFragment
+import com.certicode.inventiapp.fragment.BookingListFragment
 import com.certicode.inventiapp.fragment.ChatBotFragment
 import com.certicode.inventiapp.models.ApartmentModel
 import com.certicode.inventiapp.models.FeatureModel
@@ -43,6 +44,12 @@ class HomeFragment : Fragment() {
                 "Ammenities" -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, AmenitiesFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
+                "Hoa" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BookingListFragment())
                         .addToBackStack(null)
                         .commit()
                 }
