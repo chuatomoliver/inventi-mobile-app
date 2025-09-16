@@ -40,11 +40,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/tag_background"
-                android:backgroundTint="#EBE8E8"
                 android:layout_marginLeft="7dp"
                 android:padding="7dp"
                 android:text="Apartment"
-                android:textColor="@color/blue1"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/poppins_semibold"
                     android:padding="4dp"
                     android:text="4.0"
                     android:layout_marginLeft="6dp"
@@ -97,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:drawableStart="@drawable/ic_location_pin"
+            android:fontFamily="@font/poppins_semibold"
             android:drawablePadding="4dp"
             android:gravity="center_vertical"
             android:text="Pasig City"
@@ -114,7 +115,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="$9500"
-            android:textColor="@color/blue1"
+            android:textColor="@color/green"
+            android:fontFamily="@font/poppins_semibold"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/imagePlaceHolder"
             app:layout_constraintTop_toBottomOf="@+id/location_text" />
@@ -126,6 +128,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"
             android:text=" /month"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@android:color/darker_gray"
             app:layout_constraintStart_toEndOf="@+id/price_text"
             app:layout_constraintTop_toBottomOf="@+id/location_text" />
@@ -146,6 +149,7 @@
                 android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:backgroundTint="#C7C7C7"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="Cancel Booking" />
 
             <Button
@@ -153,6 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:layout_weight="1"
                 android:backgroundTint="@color/blue1"
                 android:text="View details" />
