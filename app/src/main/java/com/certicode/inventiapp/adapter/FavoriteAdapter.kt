@@ -5,12 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.fragment.FavoriteRemoveDialogFragment
 import com.certicode.inventiapp.models.FavoriteModel
 
-class FavoriteAdapter(private var favoriteList: List<FavoriteModel>):
-RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
+class FavoriteAdapter(
+    private var favoriteList: List<FavoriteModel>,
+    private val onItemClick: (favorite: FavoriteModel) -> Unit
+
+):
+    RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
 
     fun updateList(newList: List<FavoriteModel>) {
         favoriteList = newList
@@ -20,6 +26,7 @@ RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
     class FavoriteViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
 
         val imageHolder: ImageView = itemView.findViewById(R.id.imagePlaceHolder)
+        val favoriteHolder: ImageView = itemView.findViewById(R.id.favorite)
         val tagApartment: TextView = itemView.findViewById(R.id.tag_apartment)
         val rate: TextView = itemView.findViewById(R.id.rating_text)
         val title: TextView = itemView.findViewById(R.id.listing_title)
@@ -43,9 +50,13 @@ RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>(){
         holder.title.text = favoriteApartment.title
         holder.location.text = favoriteApartment.location
         holder.price.text = "$${favoriteApartment.price}"
-        holder.periodPrice.text = " /${favoriteApartment.pricePeriod}"
+        holder.periodPrice.text = favoriteApartment.pricePeriod
 
-
+        // Set click listener for the whole item
+        holder.favoriteHolder.setOnClickListener {
+            val bottomSheet = FavoriteRemoveDialogFragment.newInstance(favoriteApartment)
+            bottomSheet.show((holder.itemView.context as AppCompatActivity).supportFragmentManager, "RemoveFavoriteDialog")
+        }
     }
 
     override fun getItemCount() = favoriteList.size

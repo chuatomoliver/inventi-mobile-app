@@ -7,28 +7,38 @@
     tools:context=".fragment.FavoriteApartmentFragment">
 
 
-    <EditText
-        android:id="@+id/editTextText"
+    <RelativeLayout
+        android:id="@+id/layout_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/size_12dp"
-        android:background="@drawable/edittext_rounded"
-        android:drawableStart="@drawable/ic_search"
-        android:drawableTint="@color/black"
-        android:elevation="2dp"
-        android:ems="10"
-        android:hint="Search Favorite"
-        android:inputType="text"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/skyblue" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_rounded"
+            android:drawableLeft="@drawable/ic_manifying"
+            android:elevation="4dp"
+            android:hint="Search Here"
+            android:padding="10dp" />
+
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:background="@color/bluebg"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -43,6 +53,7 @@
             android:background="@drawable/circle_background"
             android:backgroundTint="@color/blue1"
             android:padding="12dp"
+            android:tint="@color/white"
             android:src="@drawable/arrow_down_sign_to_navigate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +66,7 @@
             android:fontFamily="@font/proximanova_semi"
             android:text="Favorite"
             android:textSize="25sp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.411"
@@ -79,12 +91,11 @@
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText">
+        app:layout_constraintTop_toBottomOf="@+id/layout_search">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -98,39 +109,39 @@
                 android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:backgroundTint="#E7E7E7"
+                android:text="All"
                 android:textColor="@android:color/darker_gray"
-                android:textStyle="bold"
-                android:text="All" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/sortHouses"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#E7E7E7"
-                android:textColor="@android:color/darker_gray"
-                android:textStyle="bold"
                 android:layout_margin="4dp"
-                android:text="House" />
+                android:backgroundTint="#E7E7E7"
+                android:text="House"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/sortVilla"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#E7E7E7"
-                android:textColor="@android:color/darker_gray"
-                android:textStyle="bold"
                 android:layout_margin="4dp"
-                android:text="Villa" />
+                android:backgroundTint="#E7E7E7"
+                android:text="Villa"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/sortApartments"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="#E7E7E7"
-                android:textColor="@android:color/darker_gray"
-                android:textStyle="bold"
                 android:layout_margin="4dp"
-                android:text="Apartments" />
+                android:backgroundTint="#E7E7E7"
+                android:text="Apartments"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </HorizontalScrollView>
