@@ -9,33 +9,31 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.ActivityHome2Binding
 import com.certicode.inventiapp.fragment.*
 
-
-private val fragments = arrayOf(
-    HomeFragment(),
-    MapsFragment(),
-    CatFragment(),
-    BirdFragment()
-)
-
 class Home2Activity : AppCompatActivity() {
 
-    // Define arrays for the unselected and selected icon drawables
-    val unselectedIcons = arrayOf(
+    private lateinit var binding: ActivityHome2Binding
+    private var activeFragmentIndex = 0
+
+    private val unselectedIcons = arrayOf(
         R.drawable.ic_home,
         R.drawable.ic_search,
         R.drawable.ic_location,
         R.drawable.ic_profile2
     )
 
-    val selectedIcons = arrayOf(
+    private val selectedIcons = arrayOf(
         R.drawable.ic_home_selected,
         R.drawable.ic_search,
         R.drawable.ic_location,
         R.drawable.ic_profile2
     )
 
-    private lateinit var binding: ActivityHome2Binding
-    private var activeFragmentIndex = 0
+    private val fragments = arrayOf(
+        HomeFragment(),
+        MapsFragment(),
+        CatFragment(),
+        BirdFragment()
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

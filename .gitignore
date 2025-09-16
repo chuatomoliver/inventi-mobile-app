@@ -1,31 +1,19 @@
-# Gradle files
+# Gradle
 .gradle/
 build/
-*/build/
 
-# Local configuration
-local.properties
-
-# Log files
-*.log
-
-# Android Studio files
+# Android Studio
 .idea/
 *.iml
-*.ipr
-*.iws
 
-# Keystore files (DO NOT COMMIT YOUR KEYSTORE)
-*.jks
-*.keystore
+# Local settings
+.gradle/
+.idea/
+*.iml
+local.properties
+build/
 
-# Gradle Wrapper
-gradle/wrapper/gradle-wrapper.properties
-
-# Misc
-.DS_Store
-/out/
-
-# Crashlytics
-com_crashlytics_export_strings.xml
-fabric.properties
+# Others
+captures/
+.externalNativeBuild
+.cxx/
