@@ -24,11 +24,12 @@
             app:srcCompat="@drawable/apartment" />
 
         <ImageView
-            android:id="@+id/favorite"
+            android:id="@+id/imageView4"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+
             android:background="@drawable/circle_background"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="@+id/imagePlaceHolder"

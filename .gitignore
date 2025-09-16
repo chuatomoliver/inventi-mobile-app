@@ -1,19 +1,29 @@
-# Gradle
+# Gradle build files
 .gradle/
 build/
 
-# Android Studio
-.idea/
-*.iml
-
-# Local settings
-.gradle/
-.idea/
-*.iml
+# Local configuration
 local.properties
-build/
+*.iml
 
-# Others
+# IDEA/Android Studio files
+.idea/
+.idea/*
+
+# Logs
+*.log
+
+# Android specific
 captures/
 .externalNativeBuild
 .cxx/
+
+# Gradle wrapper
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db

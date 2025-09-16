@@ -8,6 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.ActivityHome2Binding
 import com.certicode.inventiapp.fragment.*
+private val fragments = arrayOf(
+    HomeFragment(),
+    MapsFragment(),
+    CatFragment(),
+    BirdFragment()
+)
 
 class Home2Activity : AppCompatActivity() {
 
@@ -28,12 +34,6 @@ class Home2Activity : AppCompatActivity() {
         R.drawable.ic_profile2
     )
 
-    private val fragments = arrayOf(
-        HomeFragment(),
-        MapsFragment(),
-        CatFragment(),
-        BirdFragment()
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

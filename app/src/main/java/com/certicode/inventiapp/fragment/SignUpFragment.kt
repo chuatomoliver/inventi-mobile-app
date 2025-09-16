@@ -10,7 +10,7 @@ import com.certicode.inventiapp.R
 import com.certicode.inventiapp.activity.MainActivity
 import com.certicode.inventiapp.databinding.FragmentSignupBinding
 
-class SignUpFragment : Fragment() {
+class SignUpFragment: Fragment() {
 
     private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
@@ -18,7 +18,7 @@ class SignUpFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -26,15 +26,14 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Navigate to sign-in screen
+        // Sign Up button click listener
         binding.signInText.setOnClickListener {
             val intent = Intent(requireActivity(), MainActivity::class.java)
             startActivity(intent)
         }
 
-        // Navigate to OTP fragment after successful sign-up
         binding.signUpButton.setOnClickListener {
-            val fragment = OtpFragment() // Replace with your actual OTP fragment
+            val fragment = OtpFragment() // Assuming OtpFragment is a valid class
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)

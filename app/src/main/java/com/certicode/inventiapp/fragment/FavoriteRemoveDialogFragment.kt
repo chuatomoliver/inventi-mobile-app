@@ -1,6 +1,5 @@
 package com.certicode.inventiapp.fragment
 
-import FavoriteModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.models.FavoriteModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class FavoriteRemoveDialogFragment : BottomSheetDialogFragment() {

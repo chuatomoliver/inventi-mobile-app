@@ -15,6 +15,7 @@ import com.certicode.inventiapp.models.ApartmentModel
 
 class ApartmentAdapter(
     private val apartmentList: List<ApartmentModel>,
+    private val onItemClick: (ApartmentModel) -> Unit,
     private val fragmentManager: FragmentManager
 ) :
     RecyclerView.Adapter<ApartmentAdapter.ApartmentViewHolder>() {
@@ -61,8 +62,12 @@ class ApartmentAdapter(
         holder.ratingText.text = currentApartment.rating.toString()
         holder.priceText.text = currentApartment.price.toString()
 
+        holder.itemView.setOnClickListener {
+            onItemClick(currentApartment)
+        }
 
         holder.favIcon.setOnClickListener({
+
 
             val fragment = FavoriteApartmentFragment()
             fragmentManager.beginTransaction()
