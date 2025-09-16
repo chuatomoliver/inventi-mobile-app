@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/proximanova_black"
             android:text="Tom Oliver Chua"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -102,10 +102,12 @@
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +129,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/proximanova_semi"
                 android:text="Agent Fee: "
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -145,6 +147,7 @@
                     android:text="$5000"
                     android:layout_weight="1"
                     android:textColor="@color/green"
+                    android:fontFamily="@font/proximanova_semibold"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -156,6 +159,7 @@
                     android:textColor="@android:color/darker_gray"
                     android:text="/session"
                     android:layout_marginLeft="4dp"
+                    android:fontFamily="@font/proximanova_semibold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/linearLayout3"
                     app:layout_constraintTop_toTopOf="parent"
@@ -167,10 +171,11 @@
             android:id="@+id/bookAgent"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="8dp"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/bluebg"
             android:padding="8dp"
             android:text="Book Agent"
+            android:fontFamily="@font/proximanova_semi"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -300,7 +305,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/proximanova_regular"
                     android:text="Tom Oliver Chua is a licensed broker, fully authorized to facilitate and manage real estate transactions with professionalism and integrity"
                     android:textSize="20sp" />
             </LinearLayout>

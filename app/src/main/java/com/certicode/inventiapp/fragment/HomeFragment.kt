@@ -3,7 +3,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,11 +13,11 @@ import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
 
-import com.certicode.inventiapp.fragment.AgentListFragment
-
 import com.certicode.inventiapp.fragment.AmenitiesFragment
-
 import com.certicode.inventiapp.fragment.ChatBotFragment
+
+import com.certicode.inventiapp.fragment.PropertyFragment
+
 import com.certicode.inventiapp.models.ApartmentModel
 import com.certicode.inventiapp.models.FeatureModel
 
@@ -27,24 +27,12 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var tvViewAll: TextView
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        tvViewAll = view.findViewById<TextView>(R.id.tvViewAll)
-        tvViewAll.setOnClickListener {
-            val agentListFragment = AgentListFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, AgentListFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-
 
         val rvFeatures = binding.rvFeatures
         rvFeatures.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -89,7 +77,20 @@ class HomeFragment : Fragment() {
 
         val rvApartment = binding.rvAparment
         rvApartment.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvApartment.adapter = ApartmentAdapter(apartmentList)
+        rvApartment.adapter = ApartmentAdapter(
+            apartmentList,
+            { apartment ->
+                val fragment = PropertyFragment()
+
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit()
+
+            },
+            parentFragmentManager
+        )
+
         rvApartment.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 super.getItemOffsets(outRect, view, parent, state)

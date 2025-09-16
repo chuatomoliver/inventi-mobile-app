@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.fragment)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,10 +70,16 @@ dependencies {
     //Google Maps
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
+
     implementation("androidx.core:core-splashscreen:1.0.1")
 
-    
 
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
+
+
+    //image circle layout
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
 

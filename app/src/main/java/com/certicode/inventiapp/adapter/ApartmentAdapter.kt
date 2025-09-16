@@ -1,15 +1,23 @@
 package com.certicode.inventiapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.databinding.FavoriteApartmentItemBinding
+import com.certicode.inventiapp.fragment.FavoriteApartmentFragment
 import com.certicode.inventiapp.models.ApartmentModel
 
-class ApartmentAdapter(private val apartmentList: List<ApartmentModel>) :
+class ApartmentAdapter(
+    private val apartmentList: List<ApartmentModel>,
+    private val onItemClick: (ApartmentModel) -> Unit,
+    private val fragmentManager: FragmentManager
+) :
     RecyclerView.Adapter<ApartmentAdapter.ApartmentViewHolder>() {
 
     /**
@@ -18,8 +26,10 @@ class ApartmentAdapter(private val apartmentList: List<ApartmentModel>) :
      *
      * @param itemView The root view of the list item layout (the CardView in our case).
      */
+
     class ApartmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val apartmentImage: ImageView = itemView.findViewById(R.id.apartment_image)
+        val favIcon: ImageView = itemView.findViewById(R.id.favorite_icon)
         val listingTitle: TextView = itemView.findViewById(R.id.listing_title)
         val locationText: TextView = itemView.findViewById(R.id.location_text)
         val ratingText: TextView = itemView.findViewById(R.id.rating_text)
@@ -51,6 +61,21 @@ class ApartmentAdapter(private val apartmentList: List<ApartmentModel>) :
         holder.locationText.text = currentApartment.location
         holder.ratingText.text = currentApartment.rating.toString()
         holder.priceText.text = currentApartment.price.toString()
+
+        holder.itemView.setOnClickListener {
+            onItemClick(currentApartment)
+        }
+
+        holder.favIcon.setOnClickListener({
+
+
+            val fragment = FavoriteApartmentFragment()
+            fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+
+        })
     }
 
     /**
