@@ -15,7 +15,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:background="@color/blue"/>
+            android:background="@color/skyblue"/>
 
         <EditText
             android:layout_width="match_parent"

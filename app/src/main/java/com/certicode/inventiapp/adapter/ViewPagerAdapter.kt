@@ -1,12 +1,12 @@
 package com.certicode.inventiapp.adapter
 
+import HomeFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.certicode.inventiapp.fragment.ProfileFragment
+import com.certicode.inventiapp.fragment.BirdFragment
 import com.certicode.inventiapp.fragment.CatFragment
-import com.certicode.inventiapp.fragment.HomeFragment
 import com.certicode.inventiapp.fragment.MapsFragment
 
 
@@ -20,7 +20,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         HomeFragment(),
         MapsFragment(),
         CatFragment(),
-        ProfileFragment()
+        BirdFragment()
     )
 
     override fun getItemCount(): Int {
