@@ -16,8 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- A CardView to contain the search bar for a cleaner look and elevation.
-         It's constrained to the top of the parent. -->
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/searchCardView"
         android:layout_width="0dp"
@@ -51,12 +51,17 @@
                 android:background="@android:color/transparent" />
 
             <!-- Button to trigger the search -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/searchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Go"
+                android:textColor="@android:color/white"
                 android:background="@drawable/rounded_button"
-                android:text="Go" />
+                app:cornerRadius="20dp"
+                app:backgroundTint="@color/darkblue"
+                style="@style/Widget.MaterialComponents.Button" />
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

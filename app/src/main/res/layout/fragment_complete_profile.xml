@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        tools:context=".fragment.CompleteProfileFragment">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/arrow_down_sign_to_navigate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/blue" />
+
+
+        <TextView
+            android:id="@+id/completeProfileLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Complete Profile"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/completeProfileSubLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/poppins"
+            android:justificationMode="inter_word"
+            android:text="Don't worry, only you can see your personal data. No one else can see it"
+            android:textAlignment="center"
+            android:textColor="#9A9797"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/completeProfileLabel" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/settingUpdateImageClient"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/person"
+            app:civ_border_color="@color/blue"
+            app:civ_border_width="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/completeProfileSubLabel" />
+
+        <ImageView
+            android:id="@+id/complete_profile_button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/bg_edit_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/settingUpdateImageClient"
+            app:layout_constraintEnd_toEndOf="@+id/settingUpdateImageClient" />
+
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Name"
+            android:layout_marginTop="18dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/complete_profile_button" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="32dp"
+            app:boxBackgroundColor="#F1EAEA"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeColor="@color/blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="John Doe" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/phoneNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Phone Number"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_input_layout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_number_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="32dp"
+            app:boxBackgroundColor="#F1EAEA"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeColor="@color/blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumberLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_number_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="+63"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/genderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Gender"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number_input_layout" />
+
+        <Spinner
+            android:id="@+id/gender_spinner"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edittext_rounded"
+            android:entries="@array/gender_array"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:boxBackgroundColor="#F1EAEA"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeColor="@color/blue"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genderLabel" />
+
+        <Button
+            android:id="@+id/save_changes_button"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Update Changes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gender_spinner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

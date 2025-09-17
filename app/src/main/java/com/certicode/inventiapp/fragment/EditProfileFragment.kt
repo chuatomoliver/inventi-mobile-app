@@ -1,11 +1,20 @@
 package com.certicode.inventiapp.fragment
 
 import android.os.Bundle
+<<<<<<< HEAD
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
+=======
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
+import com.certicode.inventiapp.R
+>>>>>>> origin/ui_paymnent_method
 import com.certicode.inventiapp.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : Fragment() {
@@ -18,9 +27,43 @@ class EditProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
+<<<<<<< HEAD
         val view = binding.root
         return view
     }
 
 
+=======
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Set up the gender spinner
+        val genderArray = resources.getStringArray(R.array.gender_array)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, genderArray)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.genderSpinner.adapter = adapter
+
+        // Pre-fill with some dummy data
+        binding.nameInput.setText("John Doe")
+        binding.phoneNumberInput.setText("+639123456789")
+        binding.genderSpinner.setSelection(0)
+
+        binding.backButton.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.saveChangesButton.setOnClickListener {
+            // For now, just go back
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+>>>>>>> origin/ui_paymnent_method
 }

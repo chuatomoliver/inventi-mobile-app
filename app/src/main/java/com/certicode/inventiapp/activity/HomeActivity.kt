@@ -1,5 +1,6 @@
 package com.certicode.inventiapp.activity
 
+<<<<<<< HEAD
 import HomeFragment
 import android.graphics.Rect
 import android.os.Bundle
@@ -8,9 +9,18 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+=======
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+>>>>>>> origin/ui_paymnent_method
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.adapter.FeatureAdapter
 import com.certicode.inventiapp.databinding.ActivityHomeBinding
+<<<<<<< HEAD
 
 import com.certicode.inventiapp.fragment.ChatBotFragment
 import com.certicode.inventiapp.models.FeatureModel
@@ -39,26 +49,24 @@ private val fragments = arrayOf(
     CatFragment(),
     BirdFragment()
 )
+=======
+>>>>>>> origin/ui_paymnent_method
 
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private var activeFragmentIndex = 0
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up the LinearLayout tabs to control the fragments
-        val iconViews = listOf(
-            findViewById<ImageView>(R.id.ic_home),
-            findViewById<ImageView>(R.id.searchButton),
-            findViewById<ImageView>(R.id.mailButton),
-            findViewById<ImageView>(R.id.settingsButton)
-        )
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
+<<<<<<< HEAD
 
         val featureList = listOf(
             FeatureModel(
@@ -89,6 +97,24 @@ class HomeActivity : AppCompatActivity() {
                         .replace(R.id.fragment_container, ChatBotFragment())
                         .addToBackStack(null)
                         .commit()
+=======
+        binding.bottomNavigation.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.editProfileFragment,
+                R.id.completeProfileFragment,
+                R.id.paymentMethodsFragment,
+                R.id.successAddCardFragment,
+                R.id.addCardFragment,
+                R.id.viewEReceiptFragment -> {
+                    binding.actionbarSearch.visibility = View.GONE
+                    binding.bottomNavigation.visibility = View.GONE
+                }
+                else -> {
+                    binding.actionbarSearch.visibility = View.VISIBLE
+                    binding.bottomNavigation.visibility = View.VISIBLE
+>>>>>>> origin/ui_paymnent_method
                 }
             }
         }
