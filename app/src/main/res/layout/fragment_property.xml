@@ -35,7 +35,8 @@
             android:background="@drawable/circle_background"
             android:padding="12dp"
             android:src="@drawable/arrow_down_sign_to_navigate"
-            android:tint="@color/blue1"
+            android:backgroundTint="@color/blue"
+            android:tint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,6 +48,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/circle_background"
             android:padding="12dp"
+            android:tint="@color/blue"
             android:src="@drawable/ic_heart_out"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -93,6 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/tag_background"
+                    android:fontFamily="@font/proximanova_semibold"
                     android:paddingStart="8dp"
                     android:paddingTop="4dp"
                     android:paddingEnd="8dp"
@@ -122,6 +125,7 @@
                     android:layout_marginEnd="8dp"
                     android:text="4.0"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/proximanova_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/propertyReviews"
                     app:layout_constraintTop_toTopOf="parent"
@@ -132,6 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/proximanova_semibold"
                     android:text="(300 reviews)"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -155,6 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cityland Apartments"
+                    android:fontFamily="@font/proximanova_semibold"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -164,6 +170,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_location_pin"
+                    android:fontFamily="@font/proximanova_semibold"
                     android:text="New York, USA"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="20sp" />
@@ -180,10 +188,13 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
-                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/proximanova_semibold"
+                        android:backgroundTint="@color/blue"
+                        android:textColor="@color/white"
+
                         android:text="About"
 
-                        android:textColor="#7A7A7A" />
+              />
 
                     <Button
                         android:id="@+id/gallery"
@@ -191,9 +202,11 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/proximanova_semibold"
                         android:background="@android:color/transparent"
+                        android:textColor="#7A7A7A"
                         android:text="Gallery"
-                        android:textColor="#7A7A7A" />
+                        />
 
                     <Button
                         android:id="@+id/reviews"
@@ -201,6 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/proximanova_semibold"
                         android:background="@android:color/transparent"
                         android:text="Review"
                         android:textColor="#7A7A7A" />
@@ -224,6 +238,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Description"
+                    android:fontFamily="@font/proximanova_semibold"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -231,6 +246,7 @@
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/proximanova_semi"
                     android:layout_marginTop="8dp"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
             </LinearLayout>
@@ -250,6 +266,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/proximanova_semi"
                     android:text="Listing Agents" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -275,6 +292,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/blue1"
+                    android:fontFamily="@font/proximanova_semi"
                     android:text="Book Now"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -286,7 +304,7 @@
                     android:id="@+id/linearLayout5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-android:layout_margin="12dp"
+                    android:layout_margin="12dp"
                     android:padding="14dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
@@ -297,6 +315,7 @@ android:layout_margin="12dp"
                         android:layout_height="wrap_content"
                         android:text="Total Price"
                         android:textSize="18sp"
+                        android:fontFamily="@font/proximanova_semi"
                         app:layout_constraintBottom_toTopOf="@+id/apartmentPrice"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -307,6 +326,7 @@ android:layout_margin="12dp"
                         android:layout_height="wrap_content"
                         android:text="$1500  "
                         android:textColor="@color/green"
+                        android:fontFamily="@font/proximanova_semibold"
                         android:textSize="22sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -320,6 +340,7 @@ android:layout_margin="12dp"
                         android:layout_height="wrap_content"
                         android:text=" /month"
                         android:textColor="@android:color/darker_gray"
+                        android:fontFamily="@font/proximanova_semibold"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/apartmentPrice" />

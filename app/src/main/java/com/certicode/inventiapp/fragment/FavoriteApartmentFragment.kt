@@ -134,19 +134,19 @@ class FavoriteApartmentFragment : Fragment() {
         // Highlight selected button
         when(selectedType) {
             "All" -> {
-                allProperty.setBackgroundColor(resources.getColor(R.color.blue1))
+                allProperty.setBackgroundColor(resources.getColor(R.color.bluebg))
                 allProperty.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             }
             "House" -> {
-                sortHouses.setBackgroundColor(resources.getColor(R.color.blue1))
+                sortHouses.setBackgroundColor(resources.getColor(R.color.bluebg))
                 sortHouses.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             }
             "Villa" -> {
-                sortVilla.setBackgroundColor(resources.getColor(R.color.blue1))
+                sortVilla.setBackgroundColor(resources.getColor(R.color.bluebg))
                 sortVilla.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             }
             "Apartment" -> {
-                sortApartments.setBackgroundColor(resources.getColor(R.color.blue1))
+                sortApartments.setBackgroundColor(resources.getColor(R.color.bluebg))
                 sortApartments.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             }
         }
