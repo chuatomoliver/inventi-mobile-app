@@ -1,29 +1,20 @@
+package com.certicode.inventiapp.fragment
+
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.adapter.ApartmentAdapter
 import com.certicode.inventiapp.adapter.FeatureAdapter
-import com.certicode.inventiapp.databinding.FragmentCatBinding
 import com.certicode.inventiapp.databinding.FragmentHomeBinding
-import com.certicode.inventiapp.fragment.AgentListFragment
-
-import com.certicode.inventiapp.fragment.AmenitiesFragment
-import com.certicode.inventiapp.fragment.BookingListFragment
-import com.certicode.inventiapp.fragment.ChatBotFragment
-
-import com.certicode.inventiapp.fragment.PropertyFragment
-
 import com.certicode.inventiapp.models.ApartmentModel
 import com.certicode.inventiapp.models.FeatureModel
-
-
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -42,7 +33,7 @@ class HomeFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-        
+
         val rvFeatures = binding.rvFeatures
         rvFeatures.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         rvFeatures.adapter = FeatureAdapter(featureList) { feature, position ->

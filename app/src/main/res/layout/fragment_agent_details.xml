@@ -12,13 +12,13 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/bluebg"
+        android:background="@color/blue"
         android:src="@drawable/inventi_logo"
         android:scaleY="1.3"
-        android:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -33,7 +33,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@color/bluebg" />
+            android:background="@color/blue" />
 
         <ImageView
             android:id="@+id/imagePlaceHolder"
@@ -91,10 +91,10 @@
         android:background="@drawable/circle_background"
         android:padding="12dp"
         android:src="@drawable/arrow_down_sign_to_navigate"
-        android:backgroundTint="@color/blue1"
-        android:tint="@color/white"
+        android:backgroundTint="@color/blue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <View
         android:id="@+id/view6"
@@ -174,7 +174,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/bluebg"
+            android:backgroundTint="@color/blue"
             android:padding="8dp"
             android:text="Book Agent"
             android:fontFamily="@font/proximanova_semi"
@@ -218,7 +218,7 @@
                     android:layout_height="50dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/circle_background"
-                    android:backgroundTint="@color/bluebg"
+                    android:backgroundTint="@color/blue"
                     android:padding="7dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_calendar" />
@@ -229,7 +229,7 @@
                     android:layout_height="50dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/circle_background"
-                    android:backgroundTint="@color/bluebg"
+                    android:backgroundTint="@color/blue"
                     android:padding="7dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_phone" />
@@ -257,7 +257,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/bluebg"
+                        android:backgroundTint="@color/blue"
                         android:text="About"
                         android:textColor="@color/white" />
 

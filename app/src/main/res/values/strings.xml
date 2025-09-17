@@ -27,4 +27,12 @@
     <string name="don_t_worry_only_you_can_see_your_personal_ndata_no_one_else_will_be_able_to_see_it">Don\'t worry, only you can see your personal \ndata. No one else will be able to see it.</string>
     <string name="complete_your_profile">Complete Your Profile</string>
 
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+
+
 </resources>

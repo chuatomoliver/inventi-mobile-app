@@ -1,6 +1,5 @@
 package com.certicode.inventiapp.activity
 
-import HomeFragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
@@ -35,8 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         // Sign Up text click listener - Navigate to SignUpFragment
         binding.signUpText.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+            navigateToFragment(SignUpFragment())
         }
 
         binding.fingerprintIconCard.setOnClickListener {
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleBiometricAuthentication() {
         // For now, just navigate to home as a placeholder
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, Home2Activity::class.java)
         startActivity(intent)
     }
 }
