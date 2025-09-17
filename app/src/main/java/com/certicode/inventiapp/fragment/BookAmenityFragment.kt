@@ -1,71 +1,65 @@
 package com.certicode.inventiapp.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.certicode.inventiapp.R
+import com.certicode.inventiapp.adapter.AgentAdapter
+import com.certicode.inventiapp.databinding.FragmentBookAmenityBinding
+import com.certicode.inventiapp.models.AgentModel
 import com.certicode.inventiapp.models.AmenitiesModel
-import org.w3c.dom.Text
-
 
 class BookAmenityFragment : Fragment() {
 
+    private var _binding: FragmentBookAmenityBinding? = null
+    private val binding get() = _binding!!
+
     private var amenity: AmenitiesModel? = null
-    private lateinit var imagePlaceHolder: ImageView
-    private lateinit var amenitiesTitle: TextView
-    private lateinit var locationText: TextView
-    private lateinit var ratingText: TextView
-    private lateinit var reviewsText: TextView
-    private lateinit var tagText: TextView
-
-    private lateinit var description: TextView
-    private lateinit var amenityTag: TextView
-
-    private lateinit var amenityFee: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_book_amenity, container, false)
+    ): View {
+        _binding = FragmentBookAmenityBinding.inflate(inflater, container, false)
         amenity = arguments?.getParcelable(ARG_AMENITY)
-        imagePlaceHolder = view.findViewById(R.id.imagePlaceHolder)
-        amenitiesTitle = view.findViewById(R.id.amenitiesTitle)
-        locationText = view.findViewById(R.id.location_text)
-        ratingText = view.findViewById(R.id.rating_text)
-        reviewsText = view.findViewById(R.id.amenityReviews)
-        description = view.findViewById(R.id.description)
-        amenityTag = view.findViewById(R.id.amenityTag)
-        amenityFee = view.findViewById(R.id.amenityFee)
 
         uiSetup()
-        return view
+        dummyDataAgents()
+
+        return binding.root
     }
 
+    private fun dummyDataAgents() {
+        val agents = listOf(
+            AgentModel(R.drawable.tompogi, "Tom Oliver Chua", "Licensed Broker"),
+            AgentModel(R.drawable.tompogi, "Jane Doe", "Real Estate Agent"),
+            AgentModel(R.drawable.tompogi, "John Smith", "Property Consultant")
+        )
 
-    private fun uiSetup(){
+        binding.rvAgentList.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvAgentList.adapter = AgentAdapter(agents)
+    }
 
-        amenity?.let{ a ->
-            imagePlaceHolder.setImageResource(a.imagePlaceHolder)
-            amenitiesTitle.text = a.amenitiesTitle
-            locationText.text = a.location
-            ratingText.text = a.rating.toString()
-            reviewsText.text = "(${a.reviews} reviews)"
-            amenityTag.text = a.tagAmenity
-            description.text = a.description
-            amenityFee.text = "$${a.amenityFee}"
-
+    private fun uiSetup() {
+        amenity?.let { a ->
+            binding.imagePlaceHolder.setImageResource(a.imagePlaceHolder)
+            binding.amenitiesTitle.text = a.amenitiesTitle
+            binding.locationText.text = a.location
+            binding.ratingText.text = a.rating.toString()
+            binding.amenityReviews.text = "(${a.reviews} reviews)"
+            binding.amenityTag.text = a.tagAmenity
+            binding.description.text = a.description
+            binding.amenityFee.text = "$${a.amenityFee}"
         }
     }
+
     companion object {
         private const val ARG_AMENITY = "amenity"
 
-        fun newInstance(amenity: AmenitiesModel): BookAmenityFragment{
+        fun newInstance(amenity: AmenitiesModel): BookAmenityFragment {
             val fragment = BookAmenityFragment()
             val bundle = Bundle().apply {
                 putParcelable(ARG_AMENITY, amenity)
@@ -75,7 +69,6 @@ class BookAmenityFragment : Fragment() {
         }
     }
 
-
     override fun onResume() {
         super.onResume()
         // Hide when this fragment is visible
@@ -83,5 +76,11 @@ class BookAmenityFragment : Fragment() {
         requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        // Restore UI when leaving
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+    }
 }
