@@ -83,10 +83,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/proximanova_bold"
                     android:padding="4dp"
                     android:text="4.0"
-                    android:layout_marginLeft="6dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -115,7 +114,7 @@
             android:drawableStart="@drawable/ic_location_pin"
             android:drawablePadding="4dp"
             android:gravity="center_vertical"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/proximanova_semi"
             android:text="Pasig City"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
@@ -132,7 +131,7 @@
             android:layout_marginTop="4dp"
             android:text="$9500"
             android:textColor="@color/green"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/proximanova_bold"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/imagePlaceHolder"
             app:layout_constraintTop_toBottomOf="@+id/location_text" />
@@ -144,7 +143,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"
             android:text=" /month"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/proximanova_bold"
             android:textColor="@android:color/darker_gray"
             app:layout_constraintStart_toEndOf="@+id/price_text"
             app:layout_constraintTop_toBottomOf="@+id/location_text" />

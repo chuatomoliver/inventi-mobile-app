@@ -124,18 +124,10 @@ class HomeFragment : Fragment() {
 }
 
 val featureList = listOf(
-    FeatureModel(
-        featureName = "Home",
-    ),
-    FeatureModel(
-        featureName = "Ammenities",
-    ),
-    FeatureModel(
-        featureName = "Hoa",
-    ),
-    FeatureModel(
-        featureName = "Chat bot",
-    ),
+    FeatureModel(R.drawable.ic_home, "Home"),
+    FeatureModel(R.drawable.ic_amenities, "Ammenities"),
+    FeatureModel(R.drawable.ic_hoa, "Hoa"),
+    FeatureModel(R.drawable.ic_chatbot, "Chat bot"),
 )
 
 val  apartmentList = listOf(
