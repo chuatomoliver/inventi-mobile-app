@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Home -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.certicode.inventiapp.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Maps -->
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.certicode.inventiapp.fragment.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <!-- Cat -->
+    <fragment
+        android:id="@+id/catFragment"
+        android:name="com.certicode.inventiapp.fragment.CatFragment"
+        android:label="fragment_cat"
+        tools:layout="@layout/fragment_cat" />
+
+    <!-- Bird -->
+    <fragment
+        android:id="@+id/birdFragment"
+        android:name="com.certicode.inventiapp.fragment.BirdFragment"
+        android:label="fragment_bird"
+        tools:layout="@layout/fragment_bird" />
+
+    <!-- Profile -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.certicode.inventiapp.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_profileFragment_to_paymentMethodsFragment"
+            app:destination="@id/paymentMethodsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_completeProfileFragment"
+            app:destination="@id/completeProfileFragment" />
+    </fragment>
+
+    <!-- Profile Details -->
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.certicode.inventiapp.fragment.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/completeProfileFragment"
+        android:name="com.certicode.inventiapp.fragment.CompleteProfileFragment"
+        android:label="fragment_complete_profile"
+        tools:layout="@layout/fragment_complete_profile" />
+
+    <!-- Payments -->
+    <fragment
+        android:id="@+id/paymentMethodsFragment"
+        android:name="com.certicode.inventiapp.fragment.PaymentMethodsFragment"
+        android:label="PaymentMethodsFragment" >
+        <action
+            android:id="@+id/action_paymentMethodsFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.certicode.inventiapp.fragment.AddCardFragment"
+        android:label="fragment_add_card"
+        tools:layout="@layout/fragment_add_card" >
+        <action
+            android:id="@+id/action_addCardFragment_to_successAddCardFragment"
+            app:destination="@id/successAddCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successAddCardFragment"
+        android:name="com.certicode.inventiapp.fragment.SuccessAddCardFragment"
+        android:label="fragment_success_add_card"
+        tools:layout="@layout/fragment_success_add_card" >
+        <action
+            android:id="@+id/action_successAddCardFragment_to_viewEReceiptFragment"
+            app:destination="@id/viewEReceiptFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewEReceiptFragment"
+        android:name="com.certicode.inventiapp.fragment.ViewEReceiptFragment"
+        android:label="fragment_view_e_receipt"
+        tools:layout="@layout/fragment_view_e_receipt" />
+
+    <!-- Booking -->
+    <fragment
+        android:id="@+id/bookingListFragment"
+        android:name="com.certicode.inventiapp.fragment.BookingListFragment"
+        android:label="fragment_booking_list"
+        tools:layout="@layout/fragment_booking_list" />
+
+    <fragment
+        android:id="@+id/bookingCompleteFragment"
+        android:name="com.certicode.inventiapp.fragment.BookingCompleteFragment"
+        android:label="fragment_booking_complete"
+        tools:layout="@layout/fragment_booking_complete" />
+
+    <fragment
+        android:id="@+id/bookingListDetailsFragment"
+        android:name="com.certicode.inventiapp.fragment.BookingListDetailsFragment"
+        android:label="fragment_booking_list_details"
+        tools:layout="@layout/fragment_booking_list_details" />
+
+    <!-- Amenities -->
+    <fragment
+        android:id="@+id/amenitiesFragment"
+        android:name="com.certicode.inventiapp.fragment.AmenitiesFragment"
+        android:label="fragment_amenities"
+        tools:layout="@layout/fragment_amenities" />
+
+    <fragment
+        android:id="@+id/bookAmenityFragment"
+        android:name="com.certicode.inventiapp.fragment.BookAmenityFragment"
+        android:label="fragment_book_amenity"
+        tools:layout="@layout/fragment_book_amenity" />
+
+    <!-- Chat -->
+    <fragment
+        android:id="@+id/chatBotFragment"
+        android:name="com.certicode.inventiapp.fragment.ChatBotFragment"
+        android:label="fragment_chat_bot"
+        tools:layout="@layout/fragment_chat_bot" />
+
+    <!-- Authentication -->
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.certicode.inventiapp.fragment.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.certicode.inventiapp.fragment.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" />
+
+    <!-- Favorites -->
+    <fragment
+        android:id="@+id/favoriteApartmentFragment"
+        android:name="com.certicode.inventiapp.fragment.FavoriteApartmentFragment"
+        android:label="fragment_favorite_apartment"
+        tools:layout="@layout/fragment_favorite_apartment" />
+
+    <fragment
+        android:id="@+id/favoriteRemoveDialogFragment"
+        android:name="com.certicode.inventiapp.fragment.FavoriteRemoveDialogFragment"
+        android:label="fragment_favorite_remove_dialog"
+        tools:layout="@layout/fragment_favorite_remove_dialog" />
+
+    <!-- Properties -->
+    <fragment
+        android:id="@+id/propertyFragment"
+        android:name="com.certicode.inventiapp.fragment.PropertyFragment"
+        android:label="fragment_property"
+        tools:layout="@layout/fragment_property" />
+
+    <fragment
+        android:id="@+id/reviewSummaryFragment"
+        android:name="com.certicode.inventiapp.fragment.ReviewSummaryFragment"
+        android:label="fragment_review_summary"
+        tools:layout="@layout/fragment_review_summary" />
+
+    <!-- Receipts -->
+    <fragment
+        android:id="@+id/eReceiptFragment"
+        android:name="com.certicode.inventiapp.fragment.E_ReceiptFragment"
+        android:label="fragment_e_receipt"
+        tools:layout="@layout/fragment_e_receipt" />
+
+    <fragment
+        android:id="@+id/yourProfileFragment"
+        android:name="com.certicode.inventiapp.fragment.YourProfileFragment"
+        android:label="fragment_your_profile"
+        tools:layout="@layout/fragment_your_profile" />
+
+    <fragment
+        android:id="@+id/agentListFragment"
+        android:name="com.certicode.inventiapp.fragment.AgentListFragment"
+        android:label="fragment_agent_list"
+        tools:layout="@layout/fragment_agent_list" />
+
+    <fragment
+        android:id="@+id/agentDetailsFragment"
+        android:name="com.certicode.inventiapp.fragment.AgentDetailsFragment"
+        android:label="fragment_agent_details"
+        tools:layout="@layout/fragment_agent_details" />
+
+
+    <fragment
+        android:id="@+id/hospitalFragment"
+        android:name="com.certicode.inventiapp.fragment.HospitalFragment"
+        android:label="fragment_hospital"
+        tools:layout="@layout/fragment_hospital" />
+
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.certicode.inventiapp.fragment.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
+
+    <fragment
+        android:id="@+id/checkupFragment"
+        android:name="com.certicode.inventiapp.fragment.CheckupFragment"
+        android:label="fragment_checkup"
+        tools:layout="@layout/fragment_checkup" />
+
+    <fragment
+        android:id="@+id/emergencyFragment"
+        android:name="com.certicode.inventiapp.fragment.EmergencyFragment"
+        android:label="fragment_emergency"
+        tools:layout="@layout/fragment_emergency" />
+
+</navigation>
+
