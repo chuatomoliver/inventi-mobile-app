@@ -84,7 +84,7 @@ class ChatBotFragment : Fragment() {
     }
 
     private fun addBotReply(reply: String) {
-        messages.add(ChatMsgModel(reply, false, "Gemini", R.drawable.tompogi))
+        messages.add(ChatMsgModel(reply, false, "Gemini", R.drawable.gemini_icon))
         chatAdapter.notifyItemInserted(messages.size - 1)
         binding.rvChatMsgOutput.scrollToPosition(messages.size - 1)
     }
