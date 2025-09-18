@@ -12,7 +12,7 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bluebg"
+        android:background="@color/blue"
         android:padding="17dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
@@ -23,12 +23,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circle_background"
             android:backgroundTint="@color/blue1"
-            android:tint="@color/white"
             android:padding="12dp"
             android:src="@drawable/arrow_down_sign_to_navigate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/textView2"
@@ -55,7 +55,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:background="@color/skyblue" />
+            android:background="@color/blue" />
 
         <EditText
             android:id="@+id/searchBookingList"

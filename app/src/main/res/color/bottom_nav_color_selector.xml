@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/white" android:state_checked="true"/>
-    <item android:color="@color/inactive" android:state_checked="false"/>
+    <!-- Active states - full opacity -->
+    <item android:color="#FFFFFF" android:state_checked="true"/>
+    <item android:color="#FFFFFF" android:state_pressed="true"/>
+
+    <!-- Interactive states - medium opacity -->
+    <item android:color="#CCFFFFFF" android:state_hovered="true"/>
+    <item android:color="#B3FFFFFF" android:state_focused="true"/>
+
+    <!-- Default - low opacity for subtle look -->
+    <item android:color="#4DFFFFFF"/>  <!-- 30% opacity -->
 </selector>

@@ -10,8 +10,6 @@ import com.certicode.inventiapp.R
 import androidx.navigation.fragment.findNavController
 import com.certicode.inventiapp.databinding.FragmentPaymentMethodsBinding
 
-
-
 class PaymentMethodsFragment: Fragment() {
 
     private  var _binding: FragmentPaymentMethodsBinding? = null
@@ -46,13 +44,6 @@ class PaymentMethodsFragment: Fragment() {
         }
         binding.paymentOption4Layout.setOnClickListener {
             selectRadioButton(binding.paymentOption4Radio)
-        }
-
-        binding.addPaymentMethod.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, AddCardFragment())
-                .addToBackStack(null)
-                .commit()
         }
 
         binding.addPaymentMethod.setOnClickListener {

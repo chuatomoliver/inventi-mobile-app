@@ -44,7 +44,6 @@ class FeatureAdapter(
 
         fun bind(feature: FeatureModel) {
             // Set data to views
-            featureImage.setImageResource(feature.featureLogo)
             featureTitle.text = feature.featureName
 
 

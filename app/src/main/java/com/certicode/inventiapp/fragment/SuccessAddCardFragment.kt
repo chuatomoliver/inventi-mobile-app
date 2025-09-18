@@ -26,11 +26,11 @@ class SuccessAddCardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.viewReceiptButton.setOnClickListener {
-            findNavController().navigate(R.id.action_successAddCardFragment_to_viewEReceiptFragment)
+            findNavController().navigate(R.id.action_successAddCardFragment_to_profileFragment)
         }
 
         binding.goToHomeButton.setOnClickListener {
-            findNavController().navigate(R.id.homeFragment)
+            findNavController().navigate(R.id.action_successAddCardFragment_to_homeFragment)
         }
 
         binding.backButton.setOnClickListener {

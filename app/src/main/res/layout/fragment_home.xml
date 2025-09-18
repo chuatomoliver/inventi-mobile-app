@@ -74,10 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_10dp"
                 android:nestedScrollingEnabled="false"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSuggetion"
                 tools:itemCount="20" />
 

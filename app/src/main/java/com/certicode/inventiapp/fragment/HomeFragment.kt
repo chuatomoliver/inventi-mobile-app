@@ -27,87 +27,153 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        // === Features RecyclerView ===
+        binding.tvViewAll.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, AgentListFragment()) // make sure this matches your container id
+                .addToBackStack(null)
+                .commit()
+        }
+
         val rvFeatures = binding.rvFeatures
         rvFeatures.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvFeatures.adapter = FeatureAdapter(featureList) { feature, _ ->
-            val navController = findNavController()
-            when (feature.featureName) {
-                "Chat bot" -> navController.navigate(R.id.chatBotFragment)
-                "Hospital" -> navController.navigate(R.id.hospitalFragment)
-                "Check-up" -> navController.navigate(R.id.checkupFragment)
-                "Emergency" -> navController.navigate(R.id.emergencyFragment)
-                "Community" -> navController.navigate(R.id.communityFragment)
-                "Maps" -> navController.navigate(R.id.mapsFragment)
-                "Profile" -> navController.navigate(R.id.profileFragment)
-                "Payments" -> navController.navigate(R.id.paymentMethodsFragment)
-                "Property" -> navController.navigate(R.id.propertyFragment)
-                "Reviews" -> navController.navigate(R.id.reviewSummaryFragment)
-                "Bookings" -> navController.navigate(R.id.bookingListFragment)
-                "Favorites" -> navController.navigate(R.id.favoriteApartmentFragment)
-                "Agents" -> navController.navigate(R.id.agentListFragment)
-                "Amenities" -> navController.navigate(R.id.amenitiesFragment)
+        rvFeatures.adapter = FeatureAdapter(featureList) { feature, position ->
+            when(feature.featureName) {
+                "Chat bot" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, ChatBotFragment()) // make sure this matches your container id
+                        .addToBackStack(null)
+                        .commit()
+                }
+                "Ammenities" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AmenitiesFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
+                "Hoa" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BookingListFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
             }
         }
-        rvFeatures.addItemDecoration(horizontalSpacingDecoration())
 
-        // === Apartments RecyclerView ===
-        val rvAparment = binding.rvAparment
-        rvAparment.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvAparment.adapter = ApartmentAdapter(apartmentList, { apartment ->
-            // TODO: handle apartment item click (navigate to details if needed)
-        }, childFragmentManager)
-        rvAparment.addItemDecoration(horizontalSpacingDecoration())
+
+        rvFeatures.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                super.getItemOffsets(outRect, view, parent, state)
+
+                val position = parent.getChildAdapterPosition(view)
+                val itemCount = parent.adapter?.itemCount ?: 0
+                val margin = 10 // Define your desired margin here
+
+                if (position == 0) {
+                    // This is the first item
+                    outRect.left = margin
+                } else if (position == itemCount - 1) {
+                    // This is the last item
+                    outRect.right = margin
+                }
+
+                // Apply a margin between all items (optional)
+                outRect.right = outRect.right + 18
+            }
+        })
+
+        val rvApartment = binding.rvAparment
+        rvApartment.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        rvApartment.adapter = ApartmentAdapter(
+            apartmentList,
+            { apartment ->
+                val fragment = PropertyFragment()
+
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit()
+
+            },
+            parentFragmentManager
+        )
+
+        rvApartment.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                super.getItemOffsets(outRect, view, parent, state)
+
+                val position = parent.getChildAdapterPosition(view)
+                val itemCount = parent.adapter?.itemCount ?: 0
+                val margin = 10 // Define your desired margin here
+
+                if (position == 0) {
+                    // This is the first item
+                    outRect.left = margin
+                } else if (position == itemCount - 1) {
+                    // This is the last item
+                    outRect.right = margin
+                }
+
+                // Apply a margin between all items (optional)
+                outRect.right = outRect.right + 18
+            }
+        })
 
         return view
     }
 
-    private fun horizontalSpacingDecoration(): RecyclerView.ItemDecoration {
-        return object : RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                super.getItemOffsets(outRect, view, parent, state)
-                val position = parent.getChildAdapterPosition(view)
-                val itemCount = parent.adapter?.itemCount ?: 0
-                val margin = 10
-
-                if (position == 0) {
-                    outRect.left = margin
-                } else if (position == itemCount - 1) {
-                    outRect.right = margin
-                }
-                outRect.right = outRect.right + 18
-            }
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
 
-// === Features List ===
 val featureList = listOf(
-    FeatureModel("Hospital"),
-    FeatureModel("Check-up"),
-    FeatureModel("Emergency"),
-    FeatureModel("Chat bot"),
-    FeatureModel("Maps"),
-    FeatureModel("Profile"),
-    FeatureModel("Payments"),
-    FeatureModel("Property"),
-    FeatureModel("Reviews"),
-    FeatureModel("Bookings"),
-    FeatureModel("Favorites"),
-    FeatureModel("Agents"),
-    FeatureModel("Amenities")
+    FeatureModel(
+        featureName = "Home",
+    ),
+    FeatureModel(
+        featureName = "Ammenities",
+    ),
+    FeatureModel(
+        featureName = "Hoa",
+    ),
+    FeatureModel(
+        featureName = "Chat bot",
+    ),
 )
 
-// === Apartments List ===
-val apartmentList = listOf(
-    ApartmentModel(R.drawable.apartment, "Cityland Apartments", "Pasig City", 4.5, 1500),
-    ApartmentModel(R.drawable.apartment, "Ayala Makati Lofts", "Makati, NCR", 4.8, 2500),
-    ApartmentModel(R.drawable.apartment, "SMDC Condominium", "Mandaluyong, Edsa", 4.2, 1800),
-    ApartmentModel(R.drawable.apartment, "Deca Homes", "Ortigas, Pasig", 4.6, 1750),
-    ApartmentModel(R.drawable.apartment, "Double Dragon", "Pasay City", 4.9, 2200)
+val  apartmentList = listOf(
+    ApartmentModel(
+        imageResource = R.drawable.apartment,
+        title = "Cityland Apartments",
+        location = "Pasig City",
+        rating = 4.5,
+        price = 1500
+    ),
+    ApartmentModel(
+        imageResource = R.drawable.apartment,
+        title = "Ayala Makati Lofts",
+        location = "Makati, NCR",
+        rating = 4.8,
+        price = 2500
+    ),
+    ApartmentModel(
+        imageResource = R.drawable.apartment,
+        title = "SMDC Condomium",
+        location = "Mandaluyong, Edsa",
+        rating = 4.2,
+        price = 1800
+    ),
+    ApartmentModel(
+        imageResource = R.drawable.apartment,
+        title = "Deca Homes",
+        location = "Ortigas, Pasig",
+        rating = 4.6,
+        price = 1750
+    ),
+    ApartmentModel(
+        imageResource = R.drawable.apartment,
+        title = "Double Dragon",
+        location = "Pasay City",
+        rating = 4.9,
+        price = 2200
+    )
+
+
 )

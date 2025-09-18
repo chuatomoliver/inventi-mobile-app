@@ -1,19 +1,13 @@
 package com.certicode.inventiapp.fragment
 
 import android.os.Bundle
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-
-
 import androidx.navigation.fragment.findNavController
-
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.FragmentProfileBinding
-
-
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null

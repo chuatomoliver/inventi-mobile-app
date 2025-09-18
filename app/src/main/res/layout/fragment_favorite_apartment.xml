@@ -17,7 +17,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:background="@color/skyblue" />
+            android:background="@color/blue" />
 
         <EditText
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bluebg"
+        android:background="@color/blue"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,13 +51,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="@drawable/circle_background"
-            android:backgroundTint="@color/blue1"
+            android:backgroundTint="@color/darkblue"
             android:padding="12dp"
-            android:tint="@color/white"
             android:src="@drawable/arrow_down_sign_to_navigate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/favTv"

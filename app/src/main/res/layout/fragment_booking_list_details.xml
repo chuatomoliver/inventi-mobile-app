@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_margin="12dp"
-        android:backgroundTint="@color/bluebg"
+        android:backgroundTint="@color/blue"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -163,11 +163,11 @@
                         android:layout_height="30dp"
                         android:layout_marginLeft="18dp"
                         android:src="@drawable/ic_calendar"
-                        android:tint="@color/bluebg"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/dueDate"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/blue" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -382,7 +382,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pay Now"
-        android:backgroundTint="@color/bluebg"
+        android:backgroundTint="@color/blue"
         android:fontFamily="@font/poppins_semibold"
         android:textColor="@color/white"
         android:layout_margin="20dp"
