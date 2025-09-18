@@ -1,15 +1,22 @@
 package com.certicode.inventiapp.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.certicode.inventiapp.Gemini_Integration.AskRequest
+import com.certicode.inventiapp.Gemini_Integration.AskResponse
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.adapter.ChatAdapter
 import com.certicode.inventiapp.databinding.FragmentChatBotBinding
 import com.certicode.inventiapp.models.ChatMsgModel
+import com.certicode.inventiapp.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ChatBotFragment : Fragment() {
 
@@ -34,40 +41,57 @@ class ChatBotFragment : Fragment() {
         binding.rvChatMsgOutput.layoutManager = LinearLayoutManager(requireContext())
         binding.rvChatMsgOutput.adapter = chatAdapter
 
-        // Hide Top Layout
+        // Hide Top and Bottom Nav if needed
         requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
-        // Hide Bottom Nav
         requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
 
         binding.sentMsg.setOnClickListener {
-            chatMsg()
+            sendMessage()
             binding.linearOfferBox.visibility = View.GONE
         }
     }
 
-    private fun chatMsg() {
-        val text = binding.inputMsg.text.toString()
-        if (text.isNotEmpty()) {
-            messages.add(ChatMsgModel(text, true, "You", R.drawable.tompogi))
-            chatAdapter.notifyItemInserted(messages.size - 1)
-            binding.rvChatMsgOutput.scrollToPosition(messages.size - 1)
-            binding.inputMsg.text.clear()
+    private fun sendMessage() {
+        val text = binding.inputMsg.text.toString().trim()
+        if (text.isEmpty()) return
 
-            // Add bot reply (for testing)
-            messages.add(ChatMsgModel("Hello, I am a bot! Your msg is: $text", false, "Gemini", R.drawable.tompogi))
-            chatAdapter.notifyItemInserted(messages.size - 1)
-            binding.rvChatMsgOutput.scrollToPosition(messages.size - 1)
-            binding.inputMsg.text.clear()
-        }
+        // Display user message immediately
+        messages.add(ChatMsgModel(text, true, "You", R.drawable.tompogi))
+        chatAdapter.notifyItemInserted(messages.size - 1)
+        binding.rvChatMsgOutput.scrollToPosition(messages.size - 1)
+        binding.inputMsg.text.clear()
+
+        // Prepare and send request
+        val request = AskRequest(prompt = text)
+        ApiClient.gemini.ask(request).enqueue(object : Callback<AskResponse> {
+            override fun onResponse(call: Call<AskResponse>, response: Response<AskResponse>) {
+                if (response.isSuccessful) {
+                    val reply = response.body()?.reply ?: "No reply field in response."
+                    addBotReply(reply)
+                    Log.d("API_BODY", "Success: ${response.body()}")
+                } else {
+                    val errorText = response.errorBody()?.string() ?: "Unknown error"
+                    addBotReply("Error ${response.code()}: $errorText")
+                    Log.e("API_ERROR", errorText)
+                }
+            }
+
+            override fun onFailure(call: Call<AskResponse>, t: Throwable) {
+                addBotReply("Network error: ${t.localizedMessage}")
+                Log.e("API_FAIL", t.stackTraceToString())
+            }
+        })
+    }
+
+    private fun addBotReply(reply: String) {
+        messages.add(ChatMsgModel(reply, false, "Gemini", R.drawable.tompogi))
+        chatAdapter.notifyItemInserted(messages.size - 1)
+        binding.rvChatMsgOutput.scrollToPosition(messages.size - 1)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        // Avoid memory leaks
         _binding = null
-
-        // Restore visibility when leaving fragment
         requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.VISIBLE
         requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.VISIBLE
     }
