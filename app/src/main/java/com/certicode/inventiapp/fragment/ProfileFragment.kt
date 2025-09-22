@@ -31,18 +31,45 @@ class ProfileFragment : Fragment() {
         }
 
         binding.paymentMethodRow.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_paymentMethodsFragment)
+            val fragment = PaymentMethodsFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.editProfileRow.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
+            val fragment = EditProfileFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.completeProfileButton.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_completeProfileFragment)
+            val fragment = CompleteProfileFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 
+    override fun onResume() {
+        super.onResume()
 
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        // Hide Bottom Nav
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.VISIBLE
+        // Hide Bottom Nav
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.VISIBLE
+
+    }
 
 }
