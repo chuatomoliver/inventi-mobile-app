@@ -46,8 +46,20 @@ class EditProfileFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onResume() {
+        super.onResume()
+
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        // Hide Bottom Nav
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        requireActivity().findViewById<View>(R.id.actionbar_search)?.visibility = View.GONE
+        // Hide Bottom Nav
+        requireActivity().findViewById<View>(R.id.bottom_navigation)?.visibility = View.GONE
+
     }
 }

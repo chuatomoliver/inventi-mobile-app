@@ -75,7 +75,7 @@ class FavoriteApartmentFragment : Fragment() {
 
             FavoriteModel(
                 R.drawable.apartment,
-                "Villa", 4.8,
+                "Apartment", 4.8,
                 "Luxury Villa",
                 "Tagaytay",
                 100000,
@@ -85,7 +85,7 @@ class FavoriteApartmentFragment : Fragment() {
 
             FavoriteModel(
                 R.drawable.apartment,
-                "House",
+                "Apartment",
                 4.2,
                 "Family House",
                 "Quezon City",
@@ -96,7 +96,7 @@ class FavoriteApartmentFragment : Fragment() {
 
             FavoriteModel(
                 R.drawable.apartment,
-                "House",
+                "Apartment",
                 4.2, "Family House",
                 "Quezon City",
                 50000,
@@ -104,7 +104,7 @@ class FavoriteApartmentFragment : Fragment() {
             ),
             FavoriteModel(
                 R.drawable.apartment,
-                "House",
+                "Apartment",
                 4.2,
                 "Family House",
                 "Quezon City",
@@ -135,19 +135,19 @@ class FavoriteApartmentFragment : Fragment() {
         when(selectedType) {
             "All" -> {
                 allProperty.setBackgroundColor(resources.getColor(R.color.bluebg))
-                allProperty.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                allProperty.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
             }
             "House" -> {
                 sortHouses.setBackgroundColor(resources.getColor(R.color.bluebg))
-                sortHouses.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                sortHouses.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
             }
             "Villa" -> {
                 sortVilla.setBackgroundColor(resources.getColor(R.color.bluebg))
-                sortVilla.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                sortVilla.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
             }
             "Apartment" -> {
                 sortApartments.setBackgroundColor(resources.getColor(R.color.bluebg))
-                sortApartments.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                sortApartments.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
             }
         }
 
@@ -162,7 +162,7 @@ class FavoriteApartmentFragment : Fragment() {
     }
 
     private fun resetButtonColors() {
-        val defaultColor = resources.getColor(R.color.gray) // same as your #E7E7E7
+        val defaultColor = resources.getColor(R.color.bluebg) // same as your #E7E7E7
         allProperty.setBackgroundColor(defaultColor)
         sortHouses.setBackgroundColor(defaultColor)
         sortVilla.setBackgroundColor(defaultColor)

@@ -45,4 +45,5 @@
     <dimen name="text_40sp">40sp</dimen>
     <dimen name="text_45sp">45sp</dimen>
     <dimen name="text_50sp">50sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

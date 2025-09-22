@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/bluebg"
 
     tools:context=".activity.MainActivity">
 
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity=""
-        android:background="@color/blue"
+        android:background="@color/bluebg"
         android:gravity="center_vertical"
         android:padding="8dp"
         app:layout_constraintTop_toTopOf="parent">
@@ -37,6 +37,7 @@
         android:id="@+id/login_container"
         android:layout_width="match_parent"
         android:layout_height="700dp"
+        android:layout_margin="7dp"
         android:background="@drawable/corner_radius_circle"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -154,7 +155,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="@color/bluebg"
             android:fontFamily="@font/poppins_semibold"
             android:text="Sign In"
             app:layout_constraintEnd_toEndOf="parent"
