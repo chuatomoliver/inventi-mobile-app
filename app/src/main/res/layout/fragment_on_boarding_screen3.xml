@@ -132,7 +132,7 @@
             android:fontFamily="@font/proximanova_semi"
             android:text="The Maps"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/blue1"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
