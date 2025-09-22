@@ -63,7 +63,7 @@
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:src="@drawable/dot_icon"
-            android:tint="@color/blue1" />
+            android:tint="@android:color/darker_gray" />
 
         <ImageView
             android:id="@+id/dot2"
@@ -72,7 +72,7 @@
             android:layout_marginStart="8dp"
             android:src="@drawable/dot_icon"
             android:tint="@android:color/darker_gray"
-             />
+            />
 
         <ImageView
             android:id="@+id/dot3"
@@ -80,9 +80,8 @@
             android:layout_height="12dp"
             android:layout_marginStart="8dp"
             android:src="@drawable/dot_icon"
-            android:tint="@android:color/darker_gray" />
+            android:tint="@color/blue1" />
     </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout10"
         android:layout_width="match_parent"

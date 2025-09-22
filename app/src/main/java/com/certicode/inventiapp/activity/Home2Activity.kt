@@ -2,6 +2,7 @@ package com.certicode.inventiapp.activity
 
 import HomeFragment
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -111,4 +112,5 @@ class Home2Activity : AppCompatActivity() {
             }
         }
     }
+
 }
