@@ -27,6 +27,13 @@ class PropertyFragment : Fragment() {
         dummyDataAgents()
         dummyDataAmmenities()
 
+        binding.reviews.setOnClickListener {
+            val fragment = ApartmentRatingFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
         binding.bookApartmentBtn.setOnClickListener {
             val fragment = ReviewSummaryFragment()
             parentFragmentManager.beginTransaction()

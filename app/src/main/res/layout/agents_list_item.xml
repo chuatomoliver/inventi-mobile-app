@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:text="Tom Oliver Chua"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="License Broker"
                 android:textColor="@color/blue1"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/description"
@@ -59,14 +59,39 @@
                 android:visibility="gone" />
         </LinearLayout>
 
-        <View
-            android:id="@+id/view4"
-            android:layout_width="12dp"
-            android:layout_height="0dp"
-            android:background="@color/bluebg"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/linearLayout4"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/setDate"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/circle_background"
+                android:backgroundTint="@color/blue"
+                android:padding="7dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_calendar" />
+
+            <ImageView
+                android:id="@+id/callAgent"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/circle_background"
+                android:backgroundTint="@color/blue"
+                android:padding="7dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_phone" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

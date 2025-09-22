@@ -2,6 +2,7 @@
 
 package com.certicode.inventiapp.activity
 
+import HomeFragment
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -9,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.certicode.inventiapp.R
 import com.certicode.inventiapp.databinding.ActivityHome2Binding
 import com.certicode.inventiapp.fragment.CatFragment
-import com.certicode.inventiapp.fragment.HomeFragment
+
 import com.certicode.inventiapp.fragment.MapsFragment
 import com.certicode.inventiapp.fragment.ProfileHostFragment
 import com.certicode.inventiapp.fragment.ProfileNavListener

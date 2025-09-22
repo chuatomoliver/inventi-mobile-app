@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="E-Receipt"
             android:textSize="25sp"
+            android:fontFamily="@font/proximanova_semibold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.431"
@@ -53,7 +54,7 @@
         android:layout_height="150dp"
         android:layout_margin="12dp"
         android:scaleType="fitXY"
-        android:src="@drawable/barcode_icon"
+        android:src="@drawable/barcode_placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />

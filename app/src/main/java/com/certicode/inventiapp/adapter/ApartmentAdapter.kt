@@ -1,6 +1,5 @@
 package com.certicode.inventiapp.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.certicode.inventiapp.R
-import com.certicode.inventiapp.databinding.FavoriteApartmentItemBinding
+import com.certicode.inventiapp.fragment.ApartmentRatingFragment
 import com.certicode.inventiapp.fragment.FavoriteApartmentFragment
 import com.certicode.inventiapp.models.ApartmentModel
 
@@ -34,6 +33,8 @@ class ApartmentAdapter(
         val locationText: TextView = itemView.findViewById(R.id.location_text)
         val ratingText: TextView = itemView.findViewById(R.id.rating_text)
         val priceText: TextView = itemView.findViewById(R.id.price_text)
+
+        val rating_text: TextView = itemView.findViewById(R.id.rating_text)
     }
 
     /**
@@ -70,6 +71,17 @@ class ApartmentAdapter(
 
 
             val fragment = FavoriteApartmentFragment()
+            fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+
+        })
+
+        holder.rating_text.setOnClickListener({
+
+
+            val fragment = ApartmentRatingFragment()
             fragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)
