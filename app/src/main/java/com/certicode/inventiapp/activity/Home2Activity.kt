@@ -38,6 +38,7 @@ class Home2Activity : AppCompatActivity() {
                 R.id.homeFragment -> HomeFragment()
                 R.id.mapsFragment -> MapsFragment()
                 R.id.catFragment -> CatFragment()
+                R.id.leaseFragment -> BuildingLayoutFragment()
                 R.id.profileFragment -> ProfileFragment()
                 else -> null
             }

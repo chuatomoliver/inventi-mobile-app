@@ -12,6 +12,12 @@
         android:id="@+id/catFragment"
         android:icon="@drawable/ic_search"
         android:title="Search" />
+
+    <item
+        android:id="@+id/leaseFragment"
+        android:icon="@drawable/construction"
+        android:title="Lease" />
+
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile2"
