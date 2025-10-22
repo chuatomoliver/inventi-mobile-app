@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BuildingLayoutFragment">
+
+
+
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model"
+        android:textColor="@color/white"
+        android:background="@color/bluebg"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/proximanova_semibold"
+        android:padding="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_background"
+        android:backgroundTint="@color/blue1"
+        android:padding="10dp"
+        android:tint="@color/white"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/arrow_down_sign_to_navigate"
+        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buildingInside"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@drawable/inside_building"
+        app:layout_constraintEnd_toEndOf="@+id/buildingModel"
+        app:layout_constraintTop_toTopOf="@+id/buildingModel" />
+
+    <ImageView
+        android:id="@+id/buildingModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:scaleY="1"
+        android:scaleX="1"
+        android:src="@drawable/building_model"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="0.339" />
+</androidx.constraintlayout.widget.ConstraintLayout>

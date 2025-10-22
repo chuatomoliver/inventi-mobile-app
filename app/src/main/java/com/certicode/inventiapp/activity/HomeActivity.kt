@@ -74,6 +74,10 @@ class HomeActivity : AppCompatActivity() {
                 featureName = "Check-up",
             ),
             FeatureModel(
+                featureLogo = R.drawable.building,
+                featureName = "Lease",
+            ),
+            FeatureModel(
                 featureLogo = R.drawable.feature_4,
                 featureName = "Emergency",
             ),

@@ -17,6 +17,7 @@ import com.certicode.inventiapp.fragment.AgentListFragment
 import com.certicode.inventiapp.fragment.AmenitiesFragment
 import com.certicode.inventiapp.fragment.BookingListFragment
 import com.certicode.inventiapp.fragment.ChatBotFragment
+import com.certicode.inventiapp.fragment.LeaseFragment
 
 import com.certicode.inventiapp.fragment.PropertyFragment
 
@@ -59,6 +60,14 @@ class HomeFragment : Fragment() {
                         .addToBackStack(null)
                         .commit()
                 }
+
+                "Lease" -> {
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LeaseFragment())
+                        .addToBackStack(null)
+                        .commit()
+                }
+
                 "Hoa" -> {
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, BookingListFragment())
@@ -145,6 +154,12 @@ val featureList = listOf(
         featureLogo = R.drawable.feature_3,
         featureName = "Hoa",
     ),
+
+    FeatureModel(
+        featureLogo = R.drawable.building,
+        featureName = "Lease",
+    ),
+
     FeatureModel(
         featureLogo = R.drawable.feature_4,
         featureName = "Chat bot",
